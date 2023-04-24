@@ -1,0 +1,10 @@
+.primeiraSessao{
+    background-image: url(../IMG/img_banner1.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 150vh;
+    /* backdrop-filter: blur(8px); */
+}
+.primeiraSessao img {
+    backdrop-filter: blur(20px);
+}
