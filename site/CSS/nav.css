@@ -9,7 +9,7 @@ html{
     margin: auto;
     justify-content: space-between;
 }
-.nav{
+Header{
     background-color: black;
     list-style: none;
     display: flex;
@@ -29,7 +29,7 @@ html{
     justify-content: space-between;
     width: 50%;
 }
-.nav img {
+header img {
     height: 50px;
 }
 body::-webkit-scrollbar {
