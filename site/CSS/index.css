@@ -17,8 +17,9 @@ body{
 .segundaSessao{
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
-    /* height: 100vh; */
+    justify-content: space-between;
+    width: 100%;
+ 
 }
 .segundaSessao h1{
     display: flex;
@@ -35,8 +36,11 @@ body{
     border-radius: 15px;
 }
 .container{
+    display: flex;
+    justify-content: space-between;
     width: 85%;
     margin: auto;
+    /* justify-content: space-betwee; */
 }
 .segundaSessao .card1{
     display: flex;
@@ -54,10 +58,14 @@ body{
     margin-top: 15px;
     width: 50%;
 }
-.card2{
+.subtitulo{
     display: flex;
-    align-items: center;
-    justify-content: last baseline;
+    width: 100%;
+    justify-content: right;
+}
+
+.subtituloDireito{
+    display: flex;
     background-color: burlywood;
     color: black;
     font-size: 25px;
@@ -65,5 +73,5 @@ body{
     width: 45%;
     height: 30px;
     margin-top: 25px;
-    border-radius: 0px 15px 15px 0px;   
+    border-radius: 15px 0px 0px 15px;   
 }
