@@ -8,9 +8,11 @@ html{
     width: 95%;
     margin: auto;
     justify-content: space-between;
+    background-color: transparent;
+    position: fixed;
 }
 Header{
-    background-color: black;
+    background-color: transparent;
     list-style: none;
     display: flex;
     flex-direction: row;
@@ -19,8 +21,7 @@ Header{
     width: 100%;
     height: 70px;
     position: fixed;
-    /* ox-shadow: 10px 5px 5px  black; */
-    box-shadow: 0 8px 8px  black;
+  
 }
 .nav-lista{
     list-style: none;

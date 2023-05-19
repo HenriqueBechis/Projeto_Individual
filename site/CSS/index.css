@@ -1,12 +1,14 @@
-.primeiraSessao{
-    background-image: url(../IMG/imagem_orquestra\ -\ Copia.jpg);
+iframe{
     background-size: cover;
-    /* background-position: center; */
-    width: 100%;
-    height: 85vh;
-    padding-top: 90px;
+    width: 100vw;
+    height:100vh;
+    position: absolute;
+    z-index: -1;
+    margin-top:-50px;
+
     /* backdrop-filter: blur(8px); */
 }
+
 body{
     background-color: black;
 }
@@ -15,13 +17,14 @@ body{
 }
 /* Começo da segunda sessão */
 .segundaSessao{
-    display: flex;
+    /* display: flex; */
+    display: none;
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
- 
+    display: block;
 }
-.segundaSessao h1{
+.titulo{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -34,15 +37,16 @@ body{
     font-size: 25px;
     font-weight: bold;
     border-radius: 15px;
+    cursor: pointer;
 }
 .container{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 85%;
     margin: auto;
     /* justify-content: space-betwee; */
 }
-.segundaSessao .card1{
+ .subtituloEsquerdo{
     display: flex;
     align-items: center;
     background-color: burlywood;
@@ -54,7 +58,7 @@ body{
     margin-top: 25px;
     border-radius: 0px 15px 15px 0px;
 }
-.conteudoCard1{
+.conteudoEsquerdo{
     margin-top: 15px;
     width: 50%;
 }
@@ -66,7 +70,8 @@ body{
 
 .subtituloDireito{
     display: flex;
-    background-color: burlywood;
+    background-color: #deb887;
+    text-align: right;
     color: black;
     font-size: 25px;
     font-weight: bold;
@@ -74,4 +79,14 @@ body{
     height: 30px;
     margin-top: 25px;
     border-radius: 15px 0px 0px 15px;   
+}
+
+.conteudoDireito{
+    display: flex;
+    /* position: absolute  ; */
+    margin-top: 15px;
+    margin-left: 95vh;
+    justify-content: right;
+    width: 70vh;
+    text-align: justify;
 }
