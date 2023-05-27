@@ -4,7 +4,6 @@ iframe{
     height:100vh;
     position: absolute;
     z-index: -1;    
-    /* background-position: center; */
 }
 
 body{
@@ -69,4 +68,29 @@ body{
     justify-content: right;
     width: 70vh;
     text-align: justify;
+}
+/* Começo da terceira sessão */
+
+.Titulo3{
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    height: 211px;
+}
+.Titulo3 img{
+    width: 50%;
+    height: 30vh;
+}
+.text3 p{
+    margin-left: 15%;
+    margin-top:75px;
+}
+.text3{
+    width: 40%;
+}
+.p-t1{
+    font-size: 30px;
+}
+.p-t2{
+    font-size:40px;
 }
