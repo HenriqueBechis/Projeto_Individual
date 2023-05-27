@@ -70,8 +70,9 @@ body {
     /* position: absolute  ; */
     margin-top: 15px;
     margin-left: 95vh;
+    flex-direction: column;
     justify-content: right;
-    width: 70vh;
+    width: 80vh;
     text-align: justify;
     font-size: 25px;
 }
@@ -135,3 +136,17 @@ body {
 }
 /* Final da terceira sessão */
 /* Começo da quarta sessão */
+.sessao4{
+    margin-top: 25px;
+}
+.titulo4{
+    font-size: 50px;
+}
+.sessao4 h1{
+    font-size: 40px;
+    margin-top: 15px;
+}
+.sessao4 p {
+    margin-top:15px;
+    text-align: justify;
+}
