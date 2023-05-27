@@ -138,7 +138,10 @@ body {
 /* Começo da quarta sessão */
 .sessao4{
     margin-top: 25px;
+    /* width: 100%; */
+ 
 }
+
 .titulo4{
     font-size: 50px;
 }
@@ -149,4 +152,32 @@ body {
 .sessao4 p {
     margin-top:15px;
     text-align: justify;
+}
+.ultimoBeneficio{
+    width: 100%;
+    background-image: 
+    linear-gradient(
+        45deg,
+        transparent 15%,
+        black 80%
+    );
+    background-image:linear-gradient(
+        to top,
+        transparent 15%,
+        black 80%
+    );
+    height: 50vh;
+    position: relative;
+}
+.ultimoBeneficio::before{
+    content: "";
+    position:absolute;
+    inset: 0;
+    background-image: url(../IMG/imagemSessao4.png)
+    ;
+    height: 50vh;
+    background-size: cover;
+    background-position: bottom;
+    z-index: -1;
+    opacity: .3;
 }
