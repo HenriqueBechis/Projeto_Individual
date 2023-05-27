@@ -82,11 +82,23 @@ body {
     display: flex;
     justify-content: space-between;
     height: 211px;
+    position: relative;
+    background-image: linear-gradient(
+        to left,
+        transparent,
+        black 70%
+    );
+    
 }
-
-.Titulo3 img {
-    width: 50%;
-    height: 30vh;
+.Titulo3::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url(../IMG/img_titulo3.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    z-index: -1;
+    opacity: .7;
 }
 
 .text3 p {
@@ -109,6 +121,11 @@ body {
 .texto-s3 {
     margin-top: 20vh;
     width: 100%;
+    background-image: linear-gradient(
+        45deg,
+        transparent ,
+        black 80%
+    );
     position: relative;
 }
 .texto-s3::before {
@@ -119,7 +136,7 @@ body {
     background-size: cover;
     background-position: bottom;
     z-index: -1;
-    opacity: .3;
+    opacity: .5;
 }
 
 .texto-s3 .container {
@@ -158,17 +175,13 @@ body {
     background-image: 
     linear-gradient(
         45deg,
-        transparent 15%,
-        black 80%
-    );
-    background-image:linear-gradient(
-        to top,
-        transparent 15%,
-        black 80%
+        transparent 5%,
+        black 90%
     );
     height: 50vh;
     position: relative;
 }
+
 .ultimoBeneficio::before{
     content: "";
     position:absolute;
