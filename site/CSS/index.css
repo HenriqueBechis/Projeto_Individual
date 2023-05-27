@@ -1,16 +1,17 @@
-iframe{
+iframe {
     background-size: cover;
     width: 110%;
-    height:100vh;
+    height: 100vh;
     position: absolute;
-    z-index: -1;    
+    z-index: -1;
 }
 
-body{
+body {
     background-color: black;
-    overflow-x:hidden;
+    /* overflow-x:hidden; */
 }
-.primeiraSessao{
+
+.primeiraSessao {
     z-index: 0;
     height: 100vh;
     width: 100%;
@@ -18,21 +19,22 @@ body{
     justify-content: center;
     align-items: center;
     font-size: 70px;
-    color: #deb887;
+    color: rgb(194, 117, 78);
     text-align: center;
 }
+
 /*Começo da segunda sessão  */
 
-.container{
+.container {
     display: flex;
     width: 90%;
     margin: auto;
-    /* justify-content: space-betwee; */
+
 }
- .subtituloEsquerdo{
+
+.subtituloEsquerdo {
     display: flex;
-    background-color: burlywood;
-    color: black;
+    background-color: rgb(194, 117, 78);
     font-size: 25px;
     font-weight: bold;
     width: 45%;
@@ -40,27 +42,30 @@ body{
     margin-top: 25px;
     border-radius: 0px 15px 15px 0px;
 }
-.conteudoEsquerdo{
+
+.conteudoEsquerdo {
     margin-top: 15px;
+    font-size: 25px;
     width: 50%;
 }
-.subtituloDireito{
+
+.subtituloDireito {
     display: flex;
     justify-content: right;
 }
-.subtituloDireito p{
-    background-color: #deb887;
+
+.subtituloDireito p {
+    background-color: rgb(194, 117, 78);
     text-align: right;
-    color: black;
     font-size: 25px;
     font-weight: bold;
     width: 45%;
     height: 20px;
     margin-top: 25px;
-    border-radius: 15px 0px 0px 15px;   
+    border-radius: 15px 0px 0px 15px;
 }
 
-.conteudoDireito{
+.conteudoDireito {
     display: flex;
     /* position: absolute  ; */
     margin-top: 15px;
@@ -68,29 +73,65 @@ body{
     justify-content: right;
     width: 70vh;
     text-align: justify;
+    font-size: 25px;
 }
 /* Começo da terceira sessão */
-
-.Titulo3{
+.Titulo3 {
     margin-top: 25px;
     display: flex;
     justify-content: space-between;
     height: 211px;
 }
-.Titulo3 img{
+
+.Titulo3 img {
     width: 50%;
     height: 30vh;
 }
-.text3 p{
+
+.text3 p {
     margin-left: 15%;
-    margin-top:75px;
+    margin-top: 75px;
 }
-.text3{
+
+.text3 {
     width: 40%;
 }
-.p-t1{
+
+.p-t1 {
     font-size: 30px;
 }
-.p-t2{
-    font-size:40px;
+
+.p-t2 {
+    font-size: 40px;
 }
+
+.texto-s3 {
+    margin-top: 20vh;
+    width: 100%;
+    position: relative;
+}
+.texto-s3::before {
+    content: "";
+    position:absolute;
+    inset: 0;
+    background-image: url(../IMG/img_section3.png);
+    background-size: cover;
+    background-position: bottom;
+    z-index: -1;
+    opacity: .3;
+}
+
+.texto-s3 .container {
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.texto-s3 .container p {
+    width: 70%;
+    line-height: 7vh;
+    font-weight: bold;
+}
+/* Final da terceira sessão */
+/* Começo da quarta sessão */
