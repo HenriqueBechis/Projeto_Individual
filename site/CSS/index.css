@@ -186,11 +186,22 @@ body {
     content: "";
     position:absolute;
     inset: 0;
-    background-image: url(../IMG/imagemSessao4.png)
-    ;
+    background-image: url(../IMG/imagemSessao4.png);
     height: 50vh;
     background-size: cover;
     background-position: bottom;
     z-index: -1;
     opacity: .3;
+}
+.ultimoBeneficio::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(
+        to top,
+        transparent,
+        black
+    );
+    background-position: bottom;
+    z-index: -1;
 }
