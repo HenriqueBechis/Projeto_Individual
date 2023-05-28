@@ -138,7 +138,18 @@ body {
     z-index: -1;
     opacity: .5;
 }
-
+.texto-s3::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(
+        to top,
+        transparent 55%,
+        black 65%
+    );
+    background-position: bottom;
+    z-index: -1;
+}
 .texto-s3 .container {
     font-size: 30px;
     display: flex;
@@ -205,3 +216,5 @@ body {
     background-position: bottom;
     z-index: -1;
 }
+/* Final da quarta sessão */
+/* Começo dos testes */
