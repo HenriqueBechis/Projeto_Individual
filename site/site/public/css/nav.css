@@ -32,10 +32,12 @@ Header{
 }
 .nav-lista li a{
     text-decoration: none;
+    cursor: pointer;
     color: rgb(194, 117, 78);
 }
 header img {
     height: 50px;
+    cursor: pointer;
 }
 body::-webkit-scrollbar {
     width: 5px;
