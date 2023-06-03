@@ -15,7 +15,6 @@
         transparent 20%,
         black 
     );
-   
     z-index: -1;
 }
 .login::before{
@@ -29,6 +28,21 @@
     background-position: bottom;
 }
 .card-cadastro{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #E8C2A1;
+    color: #2C1B06;
+    height: 50vh;
+    width: 30%;
+    font-size: 25px;
+    line-height: 7vh;
+    border: solid 5px;
+    border-radius: 25px;
+    margin-top: 25px;
+}
+/* Estilização login */
+.card-login{
     display: flex;
     flex-direction: column;
     text-align: center;
