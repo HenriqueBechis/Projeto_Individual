@@ -49,6 +49,7 @@ b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
     }
     function responder(idAviso){
+        sessionStorage.ID_POSTAGEM_EDITANDO = idAviso;
         window.alert(`Está chamando a função`)
         window.location = "/dashboard/responder.html"
         console.log("cliquei em responder - " + idAviso);

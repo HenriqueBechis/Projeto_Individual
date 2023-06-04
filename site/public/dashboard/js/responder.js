@@ -17,6 +17,7 @@ function atualizarFeed() {
                 feed.innerHTML = "";
                 for (let i = 0; i < resposta.length; i++) {
                     var publicacao = resposta[i];
+                    if(sessionStorage.ID_POSTAGEM_EDITANDO == publicacao.idAviso){
 
                     // criando e manipulando elementos do HTML via JavaScript
                     var divPublicacao = document.createElement("div");
@@ -68,6 +69,8 @@ function atualizarFeed() {
                     divButtons.appendChild(btnResponder);
                     feed.appendChild(divPublicacao);
                 }
+                    }
+                    
 
                 finalizarAguardar();
             });
