@@ -164,6 +164,7 @@
                         var divButtons = document.createElement("div");
                         var btnEditar = document.createElement("button");
                         var btnDeletar = document.createElement("button");
+                        var btnResponder = document.createElement("button");
 
 
                         spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";
@@ -172,6 +173,7 @@
                         divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
                         btnEditar.innerHTML = "Editar";
                         btnDeletar.innerHTML = "Deletar";
+                        btnResponder.innerHTML = "Responder";
 
                         divPublicacao.className = "publicacao";
                         spanTitulo.id = "inputNumero" + publicacao.idAviso;
@@ -189,6 +191,10 @@
                         btnDeletar.id = "btnDeletar" + publicacao.idAviso;
                         btnDeletar.setAttribute("onclick", `deletar(${publicacao.idAviso})`);
 
+                        btnResponder.className = "publicacao-btn-editar"
+                        btnResponder.id = "btnEditar" + publicacao.idAviso;
+                        btnResponder.setAttribute("onclick", `editar(${publicacao.idAviso})`);
+
                         divPublicacao.appendChild(spanID);
                         divPublicacao.appendChild(spanNome);
                         divPublicacao.appendChild(spanTitulo);
@@ -196,6 +202,7 @@
                         divPublicacao.appendChild(divButtons);
                         divButtons.appendChild(btnEditar);
                         divButtons.appendChild(btnDeletar);
+                        divButtons.appendChild(btnResponder);
                         feed.appendChild(divPublicacao);
                     }
 
