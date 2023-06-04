@@ -1,0 +1,59 @@
+.login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+.login::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(
+        to top left,
+        transparent 20%,
+        black 
+    );
+   
+    z-index: -1;
+}
+.login::before{
+    content: "";
+    position: absolute;
+    inset:0;
+    background-image: url(../img/imagem_orquestra.jpg);
+    z-index: -1;
+    background-size: cover;
+    opacity: .3;
+    background-position: bottom;
+}
+.card-cadastro{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #E8C2A1;
+    color: #2C1B06;
+    height: 50vh;
+    width: 30%;
+    font-size: 25px;
+    line-height: 7vh;
+    border: solid 5px;
+    border-radius: 25px;
+    margin-top: 25px;
+}
+.card-login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-color: #E8C2A1;
+    color: #2C1B06;
+    height: 50vh;
+    width: 30%;
+    font-size: 25px;
+    line-height: 7vh;
+    border: solid 5px;
+    border-radius: 25px;
+    margin-top: 25px;
+}
