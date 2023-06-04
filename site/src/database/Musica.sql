@@ -19,7 +19,7 @@ CREATE TABLE usuario (
 );
 SELECT * FROM usuario;
 
-DESC USUARIO;
+
 CREATE TABLE aviso (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	titulo VARCHAR(100),
