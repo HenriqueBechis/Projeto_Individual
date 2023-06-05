@@ -60,6 +60,8 @@ function atualizarFeed() {
                         btnResponder.id = "btnResponder" + publicacao.idAviso;
                         btnResponder.setAttribute("onclick", `responder(${publicacao.idAviso})`);
 
+                      
+
                         divPublicacao.appendChild(spanID);
                         divPublicacao.appendChild(spanNome);
                         divPublicacao.appendChild(spanTitulo);
@@ -69,8 +71,8 @@ function atualizarFeed() {
                         divPublicacao.appendChild(divButtons);
                         divButtons.appendChild(btnEditar);
                         divButtons.appendChild(btnDeletar);
-
                         divButtons.appendChild(btnResponder);
+                     
                         feed.appendChild(divPublicacao);
                     }
 
@@ -109,27 +111,28 @@ function atualizarFeed() {
                         // criando e manipulando elementos do HTML via JavaScript
                         var divPublicacao = document.createElement("div");
                         var spanID = document.createElement("span");
-                        var spanTitulo = document.createElement("span");
                         var spanNome = document.createElement("span");
+                        var spanEstrela = document.createElement("span");
                         var divDescricao = document.createElement("div");
                         var divButtons = document.createElement("div");
                         var btnEditar = document.createElement("button");
                         var btnDeletar = document.createElement("button");
                         var btnResponder = document.createElement("button");
+                        var btnEstrela = document.createElement("button");
 
 
-                        spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";
-                        spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
+                        spanID.innerHTML = "ID: <b>" + publicacao.idResposta + "</b>";
                         spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
+                        spanEstrela.innerHTML = " Estrelas: "+ publicacao.Estrela;
                         divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
                         btnEditar.innerHTML = "Editar";
                         btnDeletar.innerHTML = "Deletar";
                         btnResponder.innerHTML = "Responder";
+                        btnEstrela.innerHTML = "Estrela"
 
                         divPublicacao.className = "publicacao";
-                        spanTitulo.id = "inputNumero" + publicacao.idAviso;
                         spanNome.className = "publicacao-nome";
-                        spanTitulo.className = "publicacao-titulo";
+                        spanEstrela.className = "publicacao-nome";
                         divDescricao.className = "publicacao-descricao";
 
                         divButtons.className = "div-buttons"
@@ -146,14 +149,19 @@ function atualizarFeed() {
                         btnResponder.id = "btnResponder" + publicacao.idAviso;
                         btnResponder.setAttribute("onclick", `responder(${publicacao.idAviso})`);
 
+                        btnEstrela.className = "btn-Estrela";
+                        btnEstrela.id = "btnEstrela" + publicacao.idAviso;
+                        btnEstrela.setAttribute("onclick", `darEstrela(${publicacao.idResposta})`);
+
                         divPublicacao.appendChild(spanID);
                         divPublicacao.appendChild(spanNome);
-                        divPublicacao.appendChild(spanTitulo);
+                        divPublicacao.appendChild(spanEstrela);
                         divPublicacao.appendChild(divDescricao);
                         divPublicacao.appendChild(divButtons);
                         divButtons.appendChild(btnEditar);
                         divButtons.appendChild(btnDeletar);
                         divButtons.appendChild(btnResponder);
+                        divButtons.appendChild(btnEstrela);
                         feed.appendChild(divPublicacao);
 
                     }
@@ -171,7 +179,6 @@ function atualizarFeed() {
 function responder() {
 
     var idUsuario = sessionStorage.ID_USUARIO;
-    var idAviso = sessionStorage.ID_POSTAGEM_RESPONDENDO;
     // alert("esta chamando")
     var corpo = {
         descricao: form_postagem.descricao.value,
@@ -191,9 +198,10 @@ function responder() {
         if (resposta.ok) {
 
             window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
+            
             // window.location = "../responder.html";
-            limparFormulario();
-            finalizarAguardar();
+            // limparFormulario();
+            // finalizarAguardar();
             return true
         } else if (resposta.status == 404) {
             window.alert("Deu 404!");
@@ -207,4 +215,43 @@ function responder() {
 
     return false;
 
+}
+
+function darEstrela(idResposta){
+
+    var idUsuario = sessionStorage.ID_USUARIO;
+   
+
+    var Estrela = { 
+        idResposta: idResposta
+    }
+
+    fetch(`/avisos/darEstrela/${idUsuario}`, {
+        method: "post",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(Estrela)
+    }).then(function (resposta) {
+        Estrela = {
+            idResposta:resposta.idResposta
+        }
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+            // window.location = "../responder.html";
+            // limparFormulario();
+            // finalizarAguardar();
+            return true
+        } else if (resposta.status == 404) {
+            window.alert("Deu 404!");
+        } else {
+            throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        // finalizarAguardar();
+    });
+
+    return false;
 }

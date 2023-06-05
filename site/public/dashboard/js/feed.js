@@ -144,7 +144,7 @@ b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
                         divPublicacao.appendChild(divDescricao);
                         
                         divPublicacao.appendChild(divButtons)   ;
-                        if (publicacao.idUsuario == sessionStorage.ID_USUARIO) {
+                        if (publicacao.idUsuario == sessionStorage.ID_USUARIO || sessionStorage.ID_USUARIO == 1) {
                             divButtons.appendChild(btnEditar);
                             divButtons.appendChild(btnDeletar);
                         }

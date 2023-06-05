@@ -31,6 +31,10 @@ router.post("/responder/:idUsuario", function (req, res) {
     avisoController.responder(req, res);
 });
 
+router.post("/darEstrela/:idUsuario", function (req, res) {
+    avisoController.darEstrela(req, res);
+});
+
 router.put("/editar/:idAviso", function (req, res) {
     avisoController.editar(req, res);
 });
