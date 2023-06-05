@@ -93,15 +93,18 @@ function publicar(req, res) {
     }
 }
 
+
 function responder(req, res) {
-    var idAviso = req.body.idAviso;
     var descricao = req.body.descricao;
+    var idAviso = req.body.idAviso;
     var idUsuario = req.params.idUsuario;
 
     if (descricao == undefined) {
         res.status(400).send("A descrição está indefinido!");
     } else if (idUsuario == undefined) {
         res.status(403).send("O id do usuário está indefinido!");
+    } else if(idAviso == undefined){
+        res.status(403).send("O id do aviso está indefinido!");
     } else {
         avisoModel.responder(idAviso, descricao, idUsuario)
             .then(

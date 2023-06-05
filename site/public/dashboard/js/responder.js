@@ -1,4 +1,5 @@
 function atualizarFeed() {
+    
     //aguardar();
     fetch("/avisos/listar").then(function (resposta) {
         if (resposta.ok) {
@@ -17,7 +18,7 @@ function atualizarFeed() {
                 feed.innerHTML = "";
                 for (let i = 0; i < resposta.length; i++) {
                     var publicacao = resposta[i];
-                    if(sessionStorage.ID_POSTAGEM_EDITANDO == publicacao.idAviso){
+                    if(sessionStorage.ID_POSTAGEM_RESPONDENDO == publicacao.idAviso){
 
                     // criando e manipulando elementos do HTML via JavaScript
                     var divPublicacao = document.createElement("div");
@@ -72,7 +73,7 @@ function atualizarFeed() {
                     }
                     
 
-                finalizarAguardar();
+                // finalizarAguardar();
             });
         } else {
             throw ('Houve um erro na API!');
@@ -83,11 +84,13 @@ function atualizarFeed() {
     });
 }
 function responder(){
+   
     var idUsuario = sessionStorage.ID_USUARIO;
-    var idAviso = sessionStorage.ID_POSTAGEM_EDITANDO;
+    var idAviso = sessionStorage.ID_POSTAGEM_RESPONDENDO;
+    // alert("esta chamando")
         var corpo = {
-            titulo: form_postagem.titulo.value,
-            descricao: form_postagem.descricao.value
+            descricao: form_postagem.descricao.value,
+            idAviso: sessionStorage.ID_POSTAGEM_RESPONDENDO
         }
 
         fetch(`/avisos/responder/${idUsuario}`, {
@@ -97,12 +100,13 @@ function responder(){
             },
             body: JSON.stringify(corpo)
         }).then(function (resposta) {
-
+            
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
+
                 window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
-                window.location = "/dashboard/responder.html";
+                // window.location = "../responder.html";
                 limparFormulario();
                 finalizarAguardar();
             } else if (resposta.status == 404) {

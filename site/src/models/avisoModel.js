@@ -70,9 +70,9 @@ function publicar(titulo, descricao, idUsuario) {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
-function responder(descricao, idUsuario, idAviso){
+function responder(idUsuario, idAviso, descricao){
     var instrucao = `
-        INSERT INTO resposta VALUES (${idUsuario}, ${idAviso}, ${descricao});
+        INSERT INTO resposta (idResposta, fk_usuario, fk_aviso, descricao) VALUES (NULL, ${descricao}, ${idUsuario}, '${idAviso}');
     `
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

@@ -27,13 +27,13 @@
                 </div>
                 <h1>Responder</h1>
                 <div class="div_form">
-                    <form id="form_postagem" method="post" onsubmit="return responder()" >
+                    <form id="form_postagem" onsubmit="return false">
                     <label>
                         Descrição:
                         <br>
                         <textarea name="descricao" id="textarea_descricao" cols="250" rows="5"></textarea>
                     </label> <br>
-                    <button>Responder</button>
+                    <button onclick="responder()">Responder</button>
                     </form>
                 </div>
             </div>

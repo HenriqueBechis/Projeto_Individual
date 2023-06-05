@@ -29,13 +29,12 @@ CREATE TABLE aviso (
 );
 SELECT * FROM aviso;
 CREATE Table resposta(
+	idResposta INT PRIMARY KEY AUTO_INCREMENT,
 	fk_usuario INT,
 	fk_aviso INT,
 	descricao VARCHAR(250),
 	Foreign Key (fk_usuario) REFERENCES usuario(id),
-	Foreign Key (fk_aviso) REFERENCES aviso(id),
-	PRIMARY KEY (fk_usuario, fk_aviso)
+	Foreign Key (fk_aviso) REFERENCES aviso(id)
 );
-
-
+DROP TABLE resposta;
 select * from resposta;
