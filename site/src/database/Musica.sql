@@ -28,4 +28,14 @@ CREATE TABLE aviso (
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 );
 SELECT * FROM aviso;
+CREATE Table resposta(
+	fk_usuario INT,
+	fk_aviso INT,
+	descricao VARCHAR(250),
+	Foreign Key (fk_usuario) REFERENCES usuario(id),
+	Foreign Key (fk_aviso) REFERENCES aviso(id),
+	PRIMARY KEY (fk_usuario, fk_aviso)
+);
 
+
+select * from resposta;

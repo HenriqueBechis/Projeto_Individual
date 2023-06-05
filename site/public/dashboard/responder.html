@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,24 +9,38 @@
     <script src="../js/funcoes.js"></script>
     <link rel="stylesheet" href="../css/feed.css">
 </head>
-    <body onload="validarSessao(), atualizarFeed()" >
 
-        <div class="janela">
-    
-            <div class="header-left">   
-                <h1>HarmonyHub</h1>
-    
-                <div class="hello">
-                    <h3>Olá, <span id="b_usuario"></span>!</h3>
+<body onload="validarSessao(), atualizarFeed()">
+
+    <div class="janela">
+
+        <div class="header-left">
+            <h1>HarmonyHub</h1>
+            <div class="hello">
+                <h3>Olá, <span id="b_usuario"></span>!</h3>
+            </div>
+        </div>
+        <div class="feed">
+            <div class="container">
+                <div class="feed_results">
+                    <div class="feed_container" id="feed_container"></div>
+                </div>
+                <h1>Responder</h1>
+                <div class="div_form">
+                    <form id="form_postagem" method="post" onsubmit="return responder()" >
+                    <label>
+                        Descrição:
+                        <br>
+                        <textarea name="descricao" id="textarea_descricao" cols="250" rows="5"></textarea>
+                    </label> <br>
+                    <button>Responder</button>
+                    </form>
                 </div>
             </div>
-            <div class="feed">
-                <div class="container">
-                    <div class="feed_results">
-                        <div class="feed_container" id="feed_container"></div>
-                    </div>
-                </div>
-            </div>
-    </body>
+            
+        </div>
+    </div>
+</body>
+
 </html>
 <script src="js/responder.js"></script>
