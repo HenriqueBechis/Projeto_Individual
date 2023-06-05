@@ -80,7 +80,8 @@ function pesquisarDescricao(req, res) {
 
 function darEstrela(req,res){
     var idResposta = req.body.idResposta;
-    avisoModel.darEstrela(idResposta).then(function(resultado) {
+    var idUsuario = req.params.idUsuario;
+    avisoModel.darEstrela(idUsuario, idResposta).then(function(resultado) {
         if(resultado.length > 0) {
             res.status(200).json(resultado);
         } else {

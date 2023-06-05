@@ -233,9 +233,6 @@ function darEstrela(idResposta){
         },
         body: JSON.stringify(Estrela)
     }).then(function (resposta) {
-        Estrela = {
-            idResposta:resposta.idResposta
-        }
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {

@@ -18,8 +18,6 @@ CREATE TABLE usuario (
 	CPF CHAR(11)
 );
 SELECT * FROM usuario;
-
-
 CREATE TABLE aviso (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	titulo VARCHAR(100),
@@ -32,26 +30,28 @@ CREATE Table resposta(
 	idResposta INT PRIMARY KEY AUTO_INCREMENT,
 	fk_usuario INT,
 	fk_aviso INT,
-	estrela INT,
 	descricao VARCHAR(250),
 	Foreign Key (fk_usuario) REFERENCES usuario(id),
 	Foreign Key (fk_aviso) REFERENCES aviso(id) ON DELETE CASCADE
 );
-
-
-DROP TABLE resposta;
-select * from resposta;
+CREATE TABLE estrelaResposta(
+	fk_usuario INT,
+	fk_resposta INT,
+	estrela INT,
+	Foreign Key (fk_usuario) REFERENCES usuario(id),
+	Foreign Key (fk_resposta) REFERENCES resposta(idResposta),
+	PRIMARY KEY  (fk_usuario, fk_resposta)
+);
+SELECT * FROM estrelaResposta;
 SELECT 
     r.idResposta AS idResposta,
     r.fk_aviso,
     r.descricao,
-	r.estrela,
     u.id AS idUsuario,
     u.nome,
     u.email,
-    u.senha
+    u.senha,
+	er.estrela AS Estrela
     FROM resposta r
-        INNER JOIN usuario u
-            ON r.fk_usuario = u.id;
-INSERT into resposta VALUES (1,1,28,NULL,'Não sei');
-UPDATE resposta SET estrela = estrela + 1 WHERE idResposta =5; 
+    INNER JOIN usuario u ON r.fk_usuario = u.id
+	JOIN estrelaResposta er ON er.fk_resposta = idResposta;

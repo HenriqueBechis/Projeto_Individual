@@ -27,14 +27,14 @@ function listarRespostas() {
     r.idResposta AS idResposta,
     r.fk_aviso,
     r.descricao,
-	r.estrela AS Estrela,
     u.id AS idUsuario,
     u.nome,
     u.email,
-    u.senha
+    u.senha,
+	er.estrela AS Estrela
     FROM resposta r
-        INNER JOIN usuario u
-            ON r.fk_usuario = u.id;
+    INNER JOIN usuario u ON r.fk_usuario = u.id
+	JOIN estrelaResposta er ON er.fk_resposta = idResposta;
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -82,9 +82,9 @@ function listarPorUsuario(idUsuario) {
     return database.executar(instrucao);
 }
 
-function darEstrela(idAviso){
+function darEstrela(idUsuario, idResposta) {
     var instrucao = `
-    UPDATE resposta SET estrela = estrela + 1 WHERE idResposta = ${idAviso}; 
+    INSERT INTO estrelaResposta(fk_usuario, fk_resposta, estrela) VALUES (${idUsuario},${idResposta},1);
     `
     console.log(instrucao)
     return database.executar(instrucao);
@@ -98,9 +98,9 @@ function publicar(titulo, descricao, idUsuario) {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
-function responder(idUsuario,idAviso, descricao){
+function responder(idUsuario, idAviso, descricao) {
     var instrucao = `
-        INSERT INTO resposta (idResposta, fk_usuario, fk_aviso,estrela,descricao) VALUES (NULL, ${idUsuario}, ${idAviso},0      , '${descricao}');
+        INSERT INTO resposta (idResposta, fk_usuario, fk_aviso,descricao) VALUES (NULL, ${idUsuario}, ${idAviso},'${descricao}');
     `
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -122,7 +122,7 @@ function deletar(idAviso) {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
- 
+
 module.exports = {
     listar,
     listarPorUsuario,
