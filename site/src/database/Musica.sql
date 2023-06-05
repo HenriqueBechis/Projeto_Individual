@@ -34,7 +34,17 @@ CREATE Table resposta(
 	fk_aviso INT,
 	descricao VARCHAR(250),
 	Foreign Key (fk_usuario) REFERENCES usuario(id),
-	Foreign Key (fk_aviso) REFERENCES aviso(id)
+	Foreign Key (fk_aviso) REFERENCES aviso(id) ON DELETE CASCADE
 );
+
 DROP TABLE resposta;
 select * from resposta;
+SELECT 
+		r.descricao,
+        u.id AS idUsuario,
+        u.nome,
+        u.email,
+        u.senha
+        FROM resposta r
+            INNER JOIN usuario u
+                ON r.fk_usuario = u.id;

@@ -142,9 +142,13 @@ b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
                         divPublicacao.appendChild(spanNome);
                         divPublicacao.appendChild(spanTitulo);
                         divPublicacao.appendChild(divDescricao);
-                        divPublicacao.appendChild(divButtons);
-                        divButtons.appendChild(btnEditar);
-                        divButtons.appendChild(btnDeletar);
+                        
+                        divPublicacao.appendChild(divButtons)   ;
+                        if (publicacao.idUsuario == sessionStorage.ID_USUARIO) {
+                            divButtons.appendChild(btnEditar);
+                            divButtons.appendChild(btnDeletar);
+                        }
+                        
                         divButtons.appendChild(btnResponder);
                         feed.appendChild(divPublicacao);
                     }
