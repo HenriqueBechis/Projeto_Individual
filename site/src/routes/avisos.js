@@ -43,4 +43,8 @@ router.delete("/deletar/:idAviso", function (req, res) {
     avisoController.deletar(req, res);
 });
 
+router.delete("/deletarResposta/:idResposta", function (req, res) {
+    avisoController.deletarResposta(req, res);
+});
+
 module.exports = router;

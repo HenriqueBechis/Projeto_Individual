@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alterar perfil</title>
+    <link rel="stylesheet" href="../css/feed.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <script src="../js/funcoes.js"></script>
+    <script src="js/perfil.js"></script>
+</head>
+<body onload="validarSessao()">
+    <div class="header-left">
+        <h1>HarmonyHub</h1>
+        <div class="hello">
+            <h3>Olá, <span id="b_usuario"></span>!</h3>
+        </div>
+    </div>
+    <div class="feed">
+    <div class="Perfil">
+        <p>Alterar nome</p>
+        <Input id="ipt_novoNome"></Input>
+        <button onclick="editarNome()">Alterar nome</button>
+    </div>
+    
+</body>
+</html>
