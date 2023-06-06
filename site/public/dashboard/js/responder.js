@@ -1,3 +1,4 @@
+// setInterval(()=> {atualizarFeed()}, 2000)
 function atualizarFeed() {
 
     //aguardar();
@@ -68,7 +69,7 @@ function atualizarFeed() {
                         divPublicacao.appendChild(divDescricao);
                         console.warn(publicacao.idUsuario);
 
-                        divPublicacao.appendChild(divButtons);
+                        // divPublicacao.appendChild(divButtons);
                         divButtons.appendChild(btnEditar);
                         divButtons.appendChild(btnDeletar);
                         divButtons.appendChild(btnResponder);
@@ -89,7 +90,7 @@ function atualizarFeed() {
     });
 
     //Listar as respostas
-    fetch("/avisos/listarRespostas").then(function (resposta) {
+    fetch(`/avisos/listarRespostas`).then(function (resposta) {
         console.warn(resposta);
         if (resposta.ok) {
             if (resposta.status == 204) {
@@ -117,7 +118,6 @@ function atualizarFeed() {
                         var divButtons = document.createElement("div");
                         var btnEditar = document.createElement("button");
                         var btnDeletar = document.createElement("button");
-                        var btnResponder = document.createElement("button");
                         var btnEstrela = document.createElement("button");
 
 
@@ -127,7 +127,6 @@ function atualizarFeed() {
                         divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
                         btnEditar.innerHTML = "Editar";
                         btnDeletar.innerHTML = "Deletar";
-                        btnResponder.innerHTML = "Responder";
                         btnEstrela.innerHTML = "Estrela"
 
                         divPublicacao.className = "publicacao";
@@ -143,11 +142,7 @@ function atualizarFeed() {
 
                         btnDeletar.className = "publicacao-btn-editar"
                         btnDeletar.id = "btnDeletar" + publicacao.idAviso;
-                        btnDeletar.setAttribute("onclick", `deletar(${publicacao.idAviso})`);
-
-                        btnResponder.className = "publicacao-btn-editar"
-                        btnResponder.id = "btnResponder" + publicacao.idAviso;
-                        btnResponder.setAttribute("onclick", `responder(${publicacao.idAviso})`);
+                        btnDeletar.setAttribute("onclick", `deletarResposta(${publicacao.idResposta})`);
 
                         btnEstrela.className = "btn-Estrela";
                         btnEstrela.id = "btnEstrela" + publicacao.idAviso;
@@ -158,12 +153,13 @@ function atualizarFeed() {
                         divPublicacao.appendChild(spanEstrela);
                         divPublicacao.appendChild(divDescricao);
                         divPublicacao.appendChild(divButtons);
-                        divButtons.appendChild(btnEditar);
-                        divButtons.appendChild(btnDeletar);
-                        divButtons.appendChild(btnResponder);
+                        if (publicacao.idUsuario == sessionStorage.ID_USUARIO || sessionStorage.ID_USUARIO == 1) {
+                            divButtons.appendChild(btnEditar);
+                            divButtons.appendChild(btnDeletar);
+                        }
                         divButtons.appendChild(btnEstrela);
                         feed.appendChild(divPublicacao);
-
+                        
                     }
                 }
                 // finalizarAguardar();
@@ -199,7 +195,8 @@ function responder() {
 
             window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
             
-            // window.location = "../responder.html";
+            // window.location = "/dashboard/responder.html";
+            atualizarFeed();
             // limparFormulario();
             // finalizarAguardar();
             return true
@@ -236,7 +233,8 @@ function darEstrela(idResposta){
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-            // window.location = "../responder.html";
+            // window.location = "/dashboard/responder.html";
+            atualizarFeed();
             // limparFormulario();
             // finalizarAguardar();
             return true
@@ -252,3 +250,23 @@ function darEstrela(idResposta){
 
     return false;
 }
+// function deletarResposta(idResposta){
+//     fetch(`/avisos/deletarResposta/${idResposta}`, {
+//         method: "DELETE",
+//         headers: {
+//             "Content-Type": "application/json"
+//         }
+//     }).then(function (resposta) {
+
+//         if (resposta.ok) {
+//             window.alert("Post deletado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
+//             window.location = "/dashboard/feed.html"
+//         } else if (resposta.status == 404) {
+//             window.alert("Deu 404!");
+//         } else {
+//             throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+//         }
+//     }).catch(function (resposta) {
+//         console.log(`#ERRO: ${resposta}`);
+//     });
+// }
