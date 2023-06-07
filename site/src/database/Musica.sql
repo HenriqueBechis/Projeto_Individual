@@ -18,7 +18,7 @@ CREATE TABLE usuario (
 	sexo VARCHAR(10),
 	instrumento VARCHAR(20)
 );
-
+SELECT * FROM usuario;
 CREATE TABLE aviso (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	titulo VARCHAR(100),

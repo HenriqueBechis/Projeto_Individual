@@ -1,4 +1,3 @@
-
 function cadastrar() {
     aguardar();
 
@@ -8,8 +7,8 @@ function cadastrar() {
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    
-    
+    var idadeVar = Idade_input.value;
+    var sexoVar = select_sexo.value;
 
     if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
         cardErro.style.display = "block"
@@ -34,7 +33,8 @@ function cadastrar() {
             nomeServer: nomeVar,
             emailServer: emailVar,
             senhaServer: senhaVar,
-            cpfServer: cpfVar
+            idadeServer: idadeVar,
+            sexoServer: sexoVar
         })
     }).then(function (resposta) {
 
