@@ -8,7 +8,8 @@ function cadastrar() {
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    var cpfVar = CPF_input.value;
+    
+    
 
     if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
         cardErro.style.display = "block"

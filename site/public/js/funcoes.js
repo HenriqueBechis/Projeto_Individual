@@ -1,4 +1,23 @@
 // sessão
+function atualizarDados(){
+    var idUsuario =sessionStorage.ID_USUARIO
+    fetch(`/perfil/mostrarDados/${idUsuario}`).then(function (resposta) {
+        if (resposta.ok) {
+            resposta.json()
+            .then(function (resposta) {
+                var nome = resposta[0].nome
+                console.log("Dados recebidos: ", JSON.stringify(resposta));
+                b_usuario.innerHTML = `${nome}`
+            });
+        } else {
+            throw ('Houve um erro na API!');
+        }
+    }).catch(function (resposta) {
+        console.error(resposta);
+        finalizarAguardar();
+    });
+}
+
 function validarSessao() {
     // aguardar();
     var email = sessionStorage.EMAIL_USUARIO;

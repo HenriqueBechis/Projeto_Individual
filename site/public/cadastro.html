@@ -68,9 +68,20 @@
                     <input id="confirmacao_senha_input" type="password" placeholder="******">
                 </div>
                 <div class="campo">
-                    <span>CPF:</span>
-                    <input id="CPF_input" type="text" placeholder="Apenas numeros">
+                    <span>Idade</span>
+                    <input id="Idade_input" type="text" placeholder="Apenas numeros">
                 </div>
+                <!-- <div class="campo"> -->
+                    <!-- <span>Sexo</span>
+                <select name="sexo" id="select_sexo">
+                    <option value="Masculino">Masculino</option>
+                    <option value="Feminino">Feminino</option>
+                </select>
+                </div>
+                <div class="campo">
+                    <span>Idade</span>
+                    <input id="Idade_input" type="text" placeholder="Apenas numeros">
+                </div> -->
                 <button class=<button class="botao" onclick="cadastrar()">Cadastrar</button>
 
             </div>
@@ -89,7 +100,7 @@
 </body>
 
 </html>
-<link rel="stylesheet" href="js/cadastro.js">
+<!-- <script src="js/cadastro.js"></script> -->
 <script>
     function cadastrar() {
         aguardar();
@@ -100,7 +111,7 @@
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
         var confirmacaoSenhaVar = confirmacao_senha_input.value;
-        var cpfVar = CPF_input.value;
+        var idadeVar = Idade_input.value;
 
         if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
             cardErro.style.display = "block"
@@ -125,7 +136,7 @@
                 nomeServer: nomeVar,
                 emailServer: emailVar,
                 senhaServer: senhaVar,
-                cpfServer: cpfVar
+                idadeServer: idadeVar
             })
         }).then(function (resposta) {
 

@@ -7,7 +7,6 @@ comandos para mysql - banco local - ambiente de desenvolvimento
 */
 
 CREATE DATABASE musica;
-
 USE musica;
 
 CREATE TABLE usuario (
@@ -15,10 +14,11 @@ CREATE TABLE usuario (
 	nome VARCHAR(50),
 	email VARCHAR(50),
 	senha VARCHAR(50),
-	CPF CHAR(11)
+	idade INT,
+	sexo VARCHAR(10),
+	instrumento VARCHAR(20)
 );
-UPDATE usuario SET nome = 'Henrique2' WHERE id = 1;
-SELECT * FROM usuario;
+
 CREATE TABLE aviso (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	titulo VARCHAR(100),
@@ -26,8 +26,8 @@ CREATE TABLE aviso (
 	fk_usuario INT,
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 );
-SELECT * FROM aviso;
-DELETE FROM resposta WHERE idResposta =;
+
+-- DELETE FROM resposta WHERE idResposta =;
 CREATE Table resposta(
 	idResposta INT PRIMARY KEY AUTO_INCREMENT,
 	fk_usuario INT,
@@ -36,8 +36,7 @@ CREATE Table resposta(
 	Foreign Key (fk_usuario) REFERENCES usuario(id),
 	Foreign Key (fk_aviso) REFERENCES aviso(id) ON DELETE CASCADE
 );
-  DELETE FROM resposta WHERE idResposta = 8;
-SELECT * FROM resposta;
+
 CREATE TABLE estrelaResposta(
 	fk_usuario INT,
 	fk_resposta INT,
@@ -46,21 +45,21 @@ CREATE TABLE estrelaResposta(
 	Foreign Key (fk_resposta) REFERENCES resposta(idResposta) ON DELETE CASCADE, 
 	PRIMARY KEY  (fk_usuario, fk_resposta)
 );
-DROP TABLE estrelaResposta;
-SELECT * FROM estrelaResposta;
+-- DROP TABLE estrelaResposta;
+-- SELECT * FROM estrelaResposta;
 
-  SELECT 
-    r.idResposta AS idResposta,
-    r.fk_aviso,
-    r.descricao,
-    u.id AS idUsuario,
-    u.nome,
-    u.email,
-    u.senha,
-	COUNT(er.estrela) AS Estrela
-    FROM resposta r
-    INNER JOIN usuario u ON r.fk_usuario = u.id
-	JOIN estrelaResposta er ON er.fk_resposta = idResposta
-	GROUP BY idResposta;
-	;
-	SELECT * FROM 
+--   SELECT 
+--     r.idResposta AS idResposta,
+--     r.fk_aviso,
+--     r.descricao,
+--     u.id AS idUsuario,
+--     u.nome,
+--     u.email,
+--     u.senha,
+-- 	COUNT(er.estrela) AS Estrela
+--     FROM resposta r
+--     INNER JOIN usuario u ON r.fk_usuario = u.id
+-- 	JOIN estrelaResposta er ON er.fk_resposta = idResposta
+-- 	GROUP BY idResposta;
+-- 	;
+-- 	SELECT * FROM 
