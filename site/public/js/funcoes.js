@@ -1,7 +1,7 @@
 // sessão
 function atualizarDados(){
     var idUsuario =sessionStorage.ID_USUARIO
-    fetch(`/perfil/mostrarDados/${idUsuario}`).then(function (resposta) {
+    fetch(`/perfil/mostrarNome/${idUsuario}`).then(function (resposta) {
         if (resposta.ok) {
             resposta.json()
             .then(function (resposta) {

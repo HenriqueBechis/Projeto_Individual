@@ -10,14 +10,23 @@ function editarNome(novoNome, idUsuario) {
     return database.executar(instrucao);
 }
 
-function mostrarDados(idUsuario) {
+function mostrarNome(idUsuario) {
     var instrucao = `
         SELECT nome FROM usuario WHERE id = ${idUsuario};
     `;
     console.log("executando a instrução SQL: \n" + instrucao)
     return database.executar(instrucao);
 }
+
+function mostrarDados(idUsuario){
+    var instrucao = `
+        SELECT idade, instrumento FROM usuario WHERE id = ${idUsuario};
+    `
+    console.log("executando a instrução SQL: \N" + instrucao)
+    return database.executar(instrucao);
+}
 module.exports = {
     editarNome,
+    mostrarNome,
     mostrarDados
 }
