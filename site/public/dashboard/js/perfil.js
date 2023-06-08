@@ -56,7 +56,7 @@ function editarIdade() {
         })
     }).then(function (resposta) {
         if (resposta.ok) {
-            atualizarDados()
+            mostrarDados()
         } else if (resposta.status == 404) {
             window.alert("Deu 404!");
         } else {
@@ -66,10 +66,10 @@ function editarIdade() {
         console.log(`#ERRO: ${resposta}`);
     });
 }
-var ax_novoInstrumento;
+
 function editarInstrumento(){
     var idUsuario = sessionStorage.ID_USUARIO;
-    ax_novoInstrumento = ipt_novoInstrumento.value;
+    var ax_novoInstrumento = ipt_novoInstrumento.value;
     fetch(`/perfil/editarInstrumento/${idUsuario}`,{
         method: "PUT",
         headers: {
@@ -80,7 +80,7 @@ function editarInstrumento(){
         })
     }).then(function(resposta){
         if(resposta.ok) {
-            atualizarDados()
+            mostrarDados()
         } else if(resposta.status == 404){
             window.alert("deu 404");
         } else {
