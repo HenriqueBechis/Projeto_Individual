@@ -7,6 +7,10 @@ router.put("/editarNome/:idUsuario", function (req, res) {
     perfilController.editarNome(req, res);
 });
 
+router.put("/editarIdade/:idUsuario", function (req, res) {
+    perfilController.editarIdade(req, res);
+});
+
 router.get("/mostrarNome/:idUsuario", function (req,res){
     perfilController.mostrarNome(req,res);
 });
