@@ -11,12 +11,20 @@ function editarNome(novoNome, idUsuario) {
 }
 
 function editarIdade(novaIdade, idUsuario) {
-    
+
     var instrucao = `
     UPDATE usuario SET idade = ${novaIdade} WHERE id = ${idUsuario}
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
+}
+
+function editarInstrumento(novoInstrumento, idUsuario) {
+    var instrucao = `
+    UPDATE usuario SET instrumento = '${novoInstrumento}' WHERE id = ${idUsuario}
+    `
+    console.log("Executando a instrução SQL: \n" + instrucao)
+    return database.executar(instrucao)
 }
 
 function mostrarNome(idUsuario) {
@@ -27,7 +35,7 @@ function mostrarNome(idUsuario) {
     return database.executar(instrucao);
 }
 
-function mostrarDados(idUsuario){
+function mostrarDados(idUsuario) {
     var instrucao = `
         SELECT idade, instrumento FROM usuario WHERE id = ${idUsuario};
     `
@@ -37,6 +45,7 @@ function mostrarDados(idUsuario){
 module.exports = {
     editarNome,
     editarIdade,
+    editarInstrumento,
     mostrarNome,
     mostrarDados
 }

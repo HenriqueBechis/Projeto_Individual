@@ -19,6 +19,8 @@ CREATE TABLE usuario (
 	instrumento VARCHAR(20)
 );
 SELECT * FROM usuario;
+
+ UPDATE usuario SET instrumento = 'efefe' WHERE id = 1;
 CREATE TABLE aviso (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	titulo VARCHAR(100),

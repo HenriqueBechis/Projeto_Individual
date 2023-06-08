@@ -66,4 +66,27 @@ function editarIdade() {
         console.log(`#ERRO: ${resposta}`);
     });
 }
-
+var ax_novoInstrumento;
+function editarInstrumento(){
+    var idUsuario = sessionStorage.ID_USUARIO;
+    ax_novoInstrumento = ipt_novoInstrumento.value;
+    fetch(`/perfil/editarInstrumento/${idUsuario}`,{
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            descricao: ax_novoInstrumento
+        })
+    }).then(function(resposta){
+        if(resposta.ok) {
+            atualizarDados()
+        } else if(resposta.status == 404){
+            window.alert("deu 404");
+        } else {
+            throw("Houve um erro ao tentar realizar a postagem! Código da resposta:" + resposta.status);
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO ${resposta}`);
+    })
+}
