@@ -99,7 +99,7 @@ b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
                         // criando e manipulando elementos do HTML via JavaScript
                         var divPublicacao = document.createElement("div");
-                      
+                        var spanImg = document.createElement("span");
                         var spanID = document.createElement("span");
                         var spanTitulo = document.createElement("span");
                         var spanNome = document.createElement("span");
@@ -114,6 +114,7 @@ b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
                         spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";
                         spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
                         spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
+                        spanImg.innerHTML = `<img src="../../assets/${publicacao.foto}" id="" style="width: 100px;">`;
                         divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
                         btnEditar.innerHTML = "Editar";
                         btnDeletar.innerHTML = "Deletar";
@@ -121,6 +122,7 @@ b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
                         divPublicacao.className = "publicacao";
                         spanTitulo.id = "inputNumero" + publicacao.idAviso;
+                
                         spanNome.className = "publicacao-nome";
                         spanTitulo.className = "publicacao-titulo";
                         divDescricao.className = "publicacao-descricao";
@@ -142,8 +144,9 @@ b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
                         divPublicacao.appendChild(spanID);
                         divPublicacao.appendChild(spanNome);
                         divPublicacao.appendChild(spanTitulo);
+                        divPublicacao.appendChild(spanImg);
                         divPublicacao.appendChild(divDescricao);
-                        
+                      
                         divPublicacao.appendChild(divButtons)   ;
                         if (publicacao.idUsuario == sessionStorage.ID_USUARIO || sessionStorage.ID_USUARIO == 1) {
                             divButtons.appendChild(btnEditar);
