@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-
+const upload = require('../config/configUpload');
 var avisoController = require("../controllers/avisoController");
 
 router.get("/", function (req, res) {
@@ -23,9 +23,14 @@ router.get("/pesquisar/:descricao", function (req, res) {
     avisoController.pesquisarDescricao(req, res);
 });
 
-router.post("/publicar/:idUsuario", function (req, res) {
+// router.post("/publicar/:idUsuario", function (req, res) {
+//     avisoController.publicar(req, res);
+// });
+
+router.post("/publicar/:idUsuario", upload.single('imgNova'), (req, res) => {
     avisoController.publicar(req, res);
 });
+
 
 router.post("/responder/:idUsuario", function (req, res) {
     avisoController.responder(req, res);
