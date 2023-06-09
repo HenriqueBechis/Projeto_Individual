@@ -99,8 +99,7 @@ b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
                         // criando e manipulando elementos do HTML via JavaScript
                         var divPublicacao = document.createElement("div");
-                        var spanImg = document.createElement("span");
-                        var spanID = document.createElement("span");
+                        var spanImg = document.createElement("div");
                         var spanTitulo = document.createElement("span");
                         var spanNome = document.createElement("span");
                         var divDescricao = document.createElement("div");
@@ -108,13 +107,12 @@ b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
                         var btnEditar = document.createElement("button");
                         var btnDeletar = document.createElement("button");
                         var btnResponder = document.createElement("button");
+                        var divIndice = document.createElement("div")
 
 
-
-                        spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";
-                        spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
-                        spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
-                        spanImg.innerHTML = `<img src="../../assets/${publicacao.foto}" id="" style="width: 100px;">`;
+                        spanImg.innerHTML = `<img src="../../assets/${publicacao.foto}" id="" >`;
+                        spanTitulo.innerHTML = "Tema: <b>" + publicacao.titulo + "</b>";
+                        spanNome.innerHTML = " <b>" + publicacao.nome + "</b>";
                         divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
                         btnEditar.innerHTML = "Editar";
                         btnDeletar.innerHTML = "Deletar";
@@ -122,10 +120,12 @@ b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
                         divPublicacao.className = "publicacao";
                         spanTitulo.id = "inputNumero" + publicacao.idAviso;
-                
+                        
+                        spanImg.className = "spanImg"
                         spanNome.className = "publicacao-nome";
                         spanTitulo.className = "publicacao-titulo";
                         divDescricao.className = "publicacao-descricao";
+                        divIndice.className = "div-indice";
 
                         divButtons.className = "div-buttons"
 
@@ -141,12 +141,15 @@ b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
                         btnResponder.id = "btnResponder" + publicacao.idAviso;
                         btnResponder.setAttribute("onclick", `responder(${publicacao.idAviso})`);
 
-                        divPublicacao.appendChild(spanID);
+                       
+                        divPublicacao.appendChild(spanImg);
+                        divPublicacao.appendChild(divIndice);
                         divPublicacao.appendChild(spanNome);
                         divPublicacao.appendChild(spanTitulo);
-                        divPublicacao.appendChild(spanImg);
                         divPublicacao.appendChild(divDescricao);
-                      
+                        divIndice.appendChild(spanImg);
+                        divIndice.appendChild(spanNome);
+
                         divPublicacao.appendChild(divButtons)   ;
                         if (publicacao.idUsuario == sessionStorage.ID_USUARIO || sessionStorage.ID_USUARIO == 1) {
                             divButtons.appendChild(btnEditar);

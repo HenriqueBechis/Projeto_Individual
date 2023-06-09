@@ -1,23 +1,35 @@
 body{
-    background-color: black;
+    background-color: #18191A;
     color: white
 }
 .janela{
-    display: flex;
-    width: 100vw;
+    width: 90vw;
 }
 .header-left{
+    background-color: #242526;
     position: fixed;
     inset:0;
     z-index: 999;
     height: 100vh;
     width: 20%;
     display: flex;
-    flex-direction:column;
+    flex-direction:column;   
     align-items: center;
     justify-content: space-evenly;
     border-right: solid;
-    border-color: white;
+    border-color: #444546;
+}
+.hello{
+    display: flex;
+}
+.imgPerfil img{
+    width: 50px;
+    border-radius:15px ;
+}
+.imgPerfil {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
 }
 .feed{
     display: flex;
@@ -29,4 +41,48 @@ body{
 }
 #textarea_descricao{
     width: 90%;
+}
+/* Postagem da duvida*/
+.div-form{
+    display: flex;
+}
+.labelTema{
+    display: flex;
+    flex-direction: column;
+}
+.labelTema input{
+    width: 30%;
+    border-radius: 7px;
+}
+.labelDescricao{
+    display: flex;
+    flex-direction: column;
+}
+.text_descricao{
+    border-radius: 15px;
+}
+/* Fim da postagem da duvia */
+/* Estilização do feed */
+.publicacao{
+    height: 30vh;
+    background-color: #242526;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 25px;
+}
+.spanImg{
+    border: solid;
+    border-color: #444546;
+    border-radius: 50px;
+}
+.spanImg img{
+    width: 40px;
+    border-radius: 15px;
+}
+.div-indice{
+    display: flex;
+    align-items: center;
 }

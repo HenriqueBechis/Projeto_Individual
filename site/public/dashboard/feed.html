@@ -17,30 +17,33 @@
 <body onload="validarSessao(), atualizarFeed(), atualizarDados()" >
 
     <div class="janela">
-
+        <!-- <header>
+            <p>teste</p>
+            estou apenas testando
+        </header> -->
         <div class="header-left">   
-            <img src="" id="usuarioFoto" style="width: 100px;">
+            <div class="hello">
+                <div class="imgPerfil">
+                    <img src="" id="usuarioFoto" >
+                </div>
+                <h3><span id="b_usuario"></span></h3>
+            </div>
             <h1>HarmonyHub</h1>
             <h1><a href="perfil.html">Alterar perfil</a></h1>
-            <div class="hello">
-                <h3>Olá, <span id="b_usuario"></span>!</h3>
-            </div>
+         
         </div>
         <div class="feed">
             <div class="container">
-                <h1>Postar sua dúvida</h1>
+                <h1>Poste sua dúvida</h1>
                 <div class="div-form">
-                    <form id="form_postagem" method="post" onsubmit="return publicar()">
-
-                        <label>
-                            Título:
-                            <br>
+                    <form id="form_postagem" method="post" onsubmit="return publicar()" class="form_postagem">
+                        <label class="labelTema">
+                            Tema:
                             <input type="text" name="titulo" id="titulo" maxlength="100"> <br>
-                        </label>
-                        <label>
+                        </label >
+                        <label class="labelDescricao">
                             Descrição:
-                            <br>
-                            <textarea name="descricao" id="textarea_descricao" cols="250" rows="5"></textarea>
+                            <textarea name="descricao" id="textarea_descricao" cols="250" rows="5" class="text_descricao"></textarea>
                         </label>
                         <br>    
                         <button>enviar</button>
