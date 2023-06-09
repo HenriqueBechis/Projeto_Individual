@@ -100,6 +100,7 @@ function atualizarFeed() {
                     // criando e manipulando elementos do HTML via JavaScript
                     var divPublicacao = document.createElement("div");
                     var spanImg = document.createElement("div");
+                    var spanImg2 = document.createElement("div");
                     var spanTitulo = document.createElement("span");
                     var spanNome = document.createElement("span");
                     var divDescricao = document.createElement("div");
@@ -111,6 +112,7 @@ function atualizarFeed() {
 
 
                     spanImg.innerHTML = `<img src="../../assets/${publicacao.foto}" id="" >`;
+                    spanImg2.innerHTML = `<img src="../../assets/${publicacao.fotoDesc}" id="" >`;
                     spanTitulo.innerHTML = "Tema: <b>" + publicacao.titulo + "</b>";
                     spanNome.innerHTML = " <b>" + publicacao.nome + "</b>";
                     divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
@@ -121,7 +123,8 @@ function atualizarFeed() {
                     divPublicacao.className = "publicacao";
                     spanTitulo.id = "inputNumero" + publicacao.idAviso;
 
-                    spanImg.className = "spanImg"
+                    spanImg.className = "spanImg";
+                    spanImg2.className = "spanImg";   
                     spanNome.className = "publicacao-nome";
                     spanTitulo.className = "publicacao-titulo";
                     divDescricao.className = "publicacao-descricao";
@@ -146,6 +149,7 @@ function atualizarFeed() {
                     divPublicacao.appendChild(divIndice);
                     divPublicacao.appendChild(spanNome);
                     divPublicacao.appendChild(spanTitulo);
+                    divPublicacao.appendChild(spanImg2);
                     divPublicacao.appendChild(divDescricao);
                     divIndice.appendChild(spanImg);
                     divIndice.appendChild(spanNome);

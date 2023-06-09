@@ -8,6 +8,7 @@ function listar() {
             a.titulo,
             a.descricao,
             a.fk_usuario,
+            a.imagem AS fotoDesc,
             u.id AS idUsuario,
             u.nome,
             u.email,
@@ -15,7 +16,8 @@ function listar() {
             u.foto
         FROM aviso a
             INNER JOIN usuario u
-                ON a.fk_usuario = u.id;
+                ON a.fk_usuario = u.id
+                    order by a.id DESC;
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
