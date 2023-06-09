@@ -99,6 +99,7 @@ b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
                         // criando e manipulando elementos do HTML via JavaScript
                         var divPublicacao = document.createElement("div");
+                      
                         var spanID = document.createElement("span");
                         var spanTitulo = document.createElement("span");
                         var spanNome = document.createElement("span");
@@ -107,6 +108,7 @@ b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
                         var btnEditar = document.createElement("button");
                         var btnDeletar = document.createElement("button");
                         var btnResponder = document.createElement("button");
+
 
 
                         spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";

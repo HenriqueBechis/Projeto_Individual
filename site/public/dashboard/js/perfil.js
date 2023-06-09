@@ -4,11 +4,15 @@ function mostrarDados(){
         if(resposta.ok){
             resposta.json()
             .then(function (resposta){
+                infos = resposta[0]
                 var idade = resposta[0].idade
                 var instrumento = resposta[0].instrumento
+                var Foto = document.getElementById("usuarioFoto");
+                Foto.src = `../assets/${infos.foto}`;
                 console.log("Dados recebidos: ", JSON.stringify(resposta));
                 idade_usuario.innerHTML = `${idade}`
                 instrumento_usuario.innerHTML = `${instrumento}`
+
             })
         } else {
             throw("Houve um erro na API");
@@ -101,8 +105,7 @@ function novaImagem() {
         body: formData
     })
         .then(res => {
-            window.alert(`Deu certo`)
-            // carregarPagina(idUsuario);
+            mostrarDados()
         })
         .catch(err => {
             console.log(err);

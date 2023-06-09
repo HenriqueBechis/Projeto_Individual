@@ -37,7 +37,11 @@ function mostrarNome(idUsuario) {
 
 function mostrarDados(idUsuario) {
     var instrucao = `
-        SELECT idade, instrumento FROM usuario WHERE id = ${idUsuario};
+        SELECT
+         idade, 
+         instrumento,
+         foto 
+         FROM usuario WHERE id = ${idUsuario};
     `
     console.log("executando a instrução SQL: \N" + instrucao)
     return database.executar(instrucao);

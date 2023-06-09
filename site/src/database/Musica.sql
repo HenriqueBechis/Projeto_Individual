@@ -49,21 +49,3 @@ CREATE TABLE estrelaResposta(
 	Foreign Key (fk_resposta) REFERENCES resposta(idResposta) ON DELETE CASCADE, 
 	PRIMARY KEY  (fk_usuario, fk_resposta)
 );
--- DROP TABLE estrelaResposta;
--- SELECT * FROM estrelaResposta;
-
---   SELECT 
---     r.idResposta AS idResposta,
---     r.fk_aviso,
---     r.descricao,
---     u.id AS idUsuario,
---     u.nome,
---     u.email,
---     u.senha,
--- 	COUNT(er.estrela) AS Estrela
---     FROM resposta r
---     INNER JOIN usuario u ON r.fk_usuario = u.id
--- 	JOIN estrelaResposta er ON er.fk_resposta = idResposta
--- 	GROUP BY idResposta;
--- 	;
--- 	SELECT * FROM 

@@ -75,7 +75,8 @@ function mostrarNome(req, res) {
 }
 
 function mostrarDados(req, res) {
-    var idUsuario = req.params.idUsuario
+    var idUsuario = req.params.idUsuario;
+    
     perfilModel.mostrarDados(idUsuario)
         .then(
             function (resultado) {
