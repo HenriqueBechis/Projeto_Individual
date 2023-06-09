@@ -92,6 +92,24 @@ function mostrarDados(req, res) {
         )
 }
 
+function mostrarFoto(req,res){
+    var idUsuario = req.params.idUsuario;
+
+    perfilModel.mostrarFoto(idUsuario)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        )
+}
+
 function alterarImagem(req, res) {
     var foto = req.file.filename;
     var idUsuario = req.params.idUsuario;
@@ -111,5 +129,6 @@ module.exports = {
     editarInstrumento,
     mostrarNome,
     mostrarDados,
+    mostrarFoto,
     alterarImagem
 }

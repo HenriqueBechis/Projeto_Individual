@@ -20,6 +20,7 @@ CREATE TABLE usuario (
 	foto VARCHAR(300)
 );
 
+SELECT foto FROM usuario WHERE id = 1;
 SELECT * FROM usuario;
 
  UPDATE usuario SET instrumento = 'efefe' WHERE id = 1;

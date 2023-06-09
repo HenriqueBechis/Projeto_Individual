@@ -23,6 +23,10 @@ router.get("/mostrarDados/:idUsuario", function (req,res){
     perfilController.mostrarDados(req,res);
 });
 
+router.get("/mostrarFoto/:idUsuario", function(req,res) {
+    perfilController.mostrarFoto(req,res);
+})
+
 router.post("/alterarImagem/:idUsuario", upload.single('imgNova'), (req, res) => {
     perfilController.alterarImagem(req, res);
 });

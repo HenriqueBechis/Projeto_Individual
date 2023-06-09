@@ -16,6 +16,24 @@ function atualizarDados(){
         console.error(resposta);
         finalizarAguardar();
     });
+ 
+    fetch(`/perfil/mostrarFoto/${idUsuario}`).then(function (resposta) {
+        if(resposta.ok){
+            resposta.json()
+            .then(function (resposta){
+                infos = resposta[0]
+                var Foto = document.getElementById("usuarioFoto");
+                Foto.src = `../assets/${infos.foto}`;
+                console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+            })
+        } else {
+            throw("Houve um erro na API");
+        }
+    }).catch(function (resposta) {
+        console.error(resposta);
+        finalizarAguardar();
+    });
 }
 
 function validarSessao() {
