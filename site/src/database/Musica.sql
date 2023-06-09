@@ -16,8 +16,10 @@ CREATE TABLE usuario (
 	senha VARCHAR(50),
 	idade INT,
 	sexo VARCHAR(10),
-	instrumento VARCHAR(20)
+	instrumento VARCHAR(20),
+	foto VARCHAR(300)
 );
+
 SELECT * FROM usuario;
 
  UPDATE usuario SET instrumento = 'efefe' WHERE id = 1;

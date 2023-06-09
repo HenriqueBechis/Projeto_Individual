@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-
+const upload = require('../config/configUpload');
 var perfilController = require("../controllers/perfilController");
 
 router.put("/editarNome/:idUsuario", function (req, res) {
@@ -21,5 +21,9 @@ router.get("/mostrarNome/:idUsuario", function (req,res){
 
 router.get("/mostrarDados/:idUsuario", function (req,res){
     perfilController.mostrarDados(req,res);
+});
+
+router.post("/alterarImagem/:idUsuario", upload.single('imgNova'), (req, res) => {
+    perfilController.alterarImagem(req, res);
 });
 module.exports = router;

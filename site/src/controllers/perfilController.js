@@ -91,10 +91,24 @@ function mostrarDados(req, res) {
         )
 }
 
+function alterarImagem(req, res) {
+    var foto = req.file.filename;
+    var idUsuario = req.params.idUsuario;
+
+    perfilModel.alterarImagem(foto, idUsuario)
+    .then(resultado => {
+        // res.status(201).send("foto alterada com sucesso");
+        res.json(resultado);
+      }).catch(err => {
+        res.status(500).send(err);
+      });
+}
+
 module.exports = {
     editarNome,
     editarIdade,
     editarInstrumento,
     mostrarNome,
-    mostrarDados
+    mostrarDados,
+    alterarImagem
 }

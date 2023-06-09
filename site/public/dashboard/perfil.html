@@ -14,6 +14,7 @@
     <div class="header-left">
         <h1>HarmonyHub</h1>
         <div class="hello">
+            <img src="" id="usuarioFoto" style="width: 100px;">
             <h3>Nome: <span id="b_usuario"></span>!</h3>
             <h3>Idade: <span id="idade_usuario"></span></h3>
             <h3>Instrumento preferido: <span id="instrumento_usuario"></span></h3>
@@ -32,6 +33,10 @@
         <p>Alterar instrumento preferido</p>
         <Input id="ipt_novoInstrumento" placeholder="Escreva aqui"></Input>
         <button onclick="editarInstrumento()">Editar instrumento</button>
+
+        <p>Alterar imagem do perfil</p>
+        <input type="file" id="imgNova" name="imgNova">
+        <button onclick="novaImagem()">Enviar</button>
     </div>
     
 </body>

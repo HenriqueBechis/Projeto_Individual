@@ -90,3 +90,21 @@ function editarInstrumento(){
         console.log(`#ERRO ${resposta}`);
     })
 }
+
+function novaImagem() {
+    var idUsuario = sessionStorage.ID_USUARIO;
+    const formData = new FormData();
+    formData.append('imgNova', imgNova.files[0])
+
+    fetch(`/perfil/alterarImagem/${idUsuario}`, {
+        method: "POST",
+        body: formData
+    })
+        .then(res => {
+            window.alert(`Deu certo`)
+            // carregarPagina(idUsuario);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+}
