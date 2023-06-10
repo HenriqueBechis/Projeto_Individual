@@ -50,7 +50,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    height: 40vh;
+    /* height: 40vh; */
     margin-top: 85px ;
     background-color: #242526;
     margin-bottom: 15px;
@@ -60,6 +60,7 @@ body{
     border-color: #444546;
     z-index: 0;
 }
+
 .labelTema{
     display: flex;
     flex-direction: column;
@@ -78,7 +79,7 @@ body{
 /* Fim da postagem da duvia */
 /* Estilização do feed */
 .publicacao{
-    height: 30vh;
+    /* height: 37vh; */
     background-color: #242526;
     margin-bottom: 15px;
     border-radius: 15px;
@@ -101,4 +102,30 @@ body{
 .div-indice{
     display: flex;
     align-items: center;
+}
+.spanImg2{
+    display: flex;
+    justify-content: center;
+}
+.spanImg2 img{
+    max-width: 300px;
+    margin-top: 15px
+}
+
+.div-buttons{
+    display: flex;
+    justify-content: space-evenly;
+    border-top:solid;
+    border-bottom: solid;
+    border-color:#444546 ;
+    border-width: 1px;
+    padding: 5px 0px 5px 0px;
+}
+.div-buttons button{
+    background-color: transparent;
+    color: #B1B4B7;
+    border: transparent;
+}
+.publicacao-descricao{
+    margin: 10px;
 }

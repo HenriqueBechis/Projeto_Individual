@@ -124,7 +124,7 @@ function atualizarFeed() {
                     spanTitulo.id = "inputNumero" + publicacao.idAviso;
 
                     spanImg.className = "spanImg";
-                    spanImg2.className = "spanImg";   
+                    spanImg2.className = "spanImg2";   
                     spanNome.className = "publicacao-nome";
                     spanTitulo.className = "publicacao-titulo";
                     divDescricao.className = "publicacao-descricao";
@@ -149,8 +149,8 @@ function atualizarFeed() {
                     divPublicacao.appendChild(divIndice);
                     divPublicacao.appendChild(spanNome);
                     divPublicacao.appendChild(spanTitulo);
-                    divPublicacao.appendChild(spanImg2);
                     divPublicacao.appendChild(divDescricao);
+                    divPublicacao.appendChild(spanImg2);
                     divIndice.appendChild(spanImg);
                     divIndice.appendChild(spanNome);
 
