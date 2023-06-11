@@ -30,8 +30,10 @@ CREATE TABLE aviso (
 	descricao VARCHAR(150),
 	fk_usuario INT,
 	imagem VARCHAR(300),
+	estrela INT,
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 );
+ALTER TABLE aviso ADD COLUMN estrela INT;
 SELECT * FROM aviso;
 -- DELETE FROM resposta WHERE idResposta =;
 CREATE Table resposta(

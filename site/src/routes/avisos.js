@@ -23,10 +23,6 @@ router.get("/pesquisar/:descricao", function (req, res) {
     avisoController.pesquisarDescricao(req, res);
 });
 
-// router.post("/publicar/:idUsuario", function (req, res) {
-//     avisoController.publicar(req, res);
-// });
-
 router.post("/publicar/:idUsuario", upload.single('imgNova'), (req, res) => {
     avisoController.publicar(req, res);
 });
@@ -38,6 +34,10 @@ router.post("/responder/:idUsuario", function (req, res) {
 
 router.post("/darEstrela/:idUsuario", function (req, res) {
     avisoController.darEstrela(req, res);
+});
+
+router.put("/darEstrelaFeed/:idAviso", function (req,res) {
+    avisoController.darEstrelaFeed(req,res);
 });
 
 router.put("/editar/:idAviso", function (req, res) {

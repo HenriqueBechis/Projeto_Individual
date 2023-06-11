@@ -34,6 +34,7 @@ body{
     border-radius: 25px;
 }
 .feed{
+    margin-top: 85px ;
     display: flex;
     justify-content: center;
     width: 80%;
@@ -50,8 +51,6 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    /* height: 40vh; */
-    margin-top: 85px ;
     background-color: #242526;
     margin-bottom: 15px;
     border-radius: 15px;
@@ -120,6 +119,7 @@ body{
     border-color:#444546 ;
     border-width: 1px;
     padding: 5px 0px 5px 0px;
+    margin-top: 10px;
 }
 .div-buttons button{
     background-color: transparent;
