@@ -1,24 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pefil</title>
 
     <link rel="stylesheet" href="../css/feed.css">
-    <script src="js/feed.js"></script>
+    <!-- <script src="js/feed.js"></script> -->
+    <script src="js/pessoa.js"></script>
     <script src="../js/funcoes.js"></script>
 </head>
-<body onload="validarSessao(), atualizarFeed(), atualizarDados()">
-    <div class="header">   
+
+<body onload="validarSessao(),puxarDados()">
+    <div class="header">
         <div class="hello">
             <div class="imgPerfil">
-                <img src="" id="usuarioFoto" >
+                <img src="" id="usuarioFoto">
             </div>
             <h3><span id="b_usuario"></span></h3>
         </div>
         <h1>HarmonyHub</h1>
         <h1><a href="perfil.html">Alterar perfil</a></h1>
-    
+    </div>
+    <div class="feed">
+        <div class="perfil">
+            <div id="idade_usuario"></div>
+            <div id="instrumento_usuario"></div>
+            <button onclick="Seguir()">Seguir</button>
+        </div>
+
+    </div>
+
 </body>
+
 </html>

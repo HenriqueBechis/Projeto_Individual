@@ -1,3 +1,4 @@
+/* Função para mostrar os dados na tela de perfil */
 function mostrarDados(){
     var idUsuario = sessionStorage.ID_USUARIO
     fetch(`/perfil/mostrarDados/${idUsuario}`).then(function (resposta) {
@@ -22,6 +23,7 @@ function mostrarDados(){
         finalizarAguardar();
     });
 }
+/* Funções de edição de dados */
 function editarNome() {
 
     fetch(`/perfil/editarNome/${sessionStorage.getItem("ID_USUARIO")}`, {
@@ -94,7 +96,6 @@ function editarInstrumento(){
         console.log(`#ERRO ${resposta}`);
     })
 }
-
 function novaImagem() {
     var idUsuario = sessionStorage.ID_USUARIO;
     const formData = new FormData();

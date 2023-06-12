@@ -38,6 +38,7 @@ function mostrarNome(idUsuario) {
 function mostrarDados(idUsuario) {
     var instrucao = `
         SELECT
+        nome,
          idade, 
          instrumento,
          foto 

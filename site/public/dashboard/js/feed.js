@@ -132,7 +132,7 @@ function atualizarFeed() {
                     /* Definição das classes das divs e spans */
                     //Spans
                     spanTitulo.id = "inputNumero" + publicacao.idAviso;
-                    spanNome.setAttribute("onclick", `visitarPerfil(${publicacao.idAviso})`)
+                    spanNome.setAttribute("onclick", `visitarPerfil(${publicacao.idUsuario})`)
                     spanImg.className = "spanImg";
                     spanImg2.className = "spanImg2";   
                     spanNome.className = "publicacao-nome";
@@ -185,8 +185,6 @@ function atualizarFeed() {
                     feed.appendChild(divPublicacao);
                     /* Fim da definição dos elemtos pai/filho */
                 }
-                
-              
             });
         } else {
             throw ('Houve um erro na API!');
@@ -236,7 +234,6 @@ function darEstrelaFeed(idAviso){
     });
     return false;
 }
-function visitarPerfil(){
-    
-    window.location = "/dashboard/pessoa.html"
-}
+
+
+

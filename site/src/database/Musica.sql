@@ -1,10 +1,3 @@
-	-- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
-
-/*
-comandos para mysql - banco local - ambiente de desenvolvimento
-*/
 
 CREATE DATABASE musica;
 USE musica;
@@ -20,10 +13,14 @@ CREATE TABLE usuario (
 	foto VARCHAR(300)
 );
 
-SELECT foto FROM usuario WHERE id = 1;
+-- tabela para os seguidores
+CREATE TABLE seguidores(
+	idSeguido INT,
+	fKSeguidor INT,
+	Foreign Key (idSeguido) REFERENCES usuario(id),
+	Foreign Key (fkSeguidor) REFERENCES usuario(id)
+);
 SELECT * FROM usuario;
-
-
 CREATE TABLE aviso (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	titulo VARCHAR(100),
@@ -63,22 +60,13 @@ CREATE TABLE estrelaPublicacao(
 );
 SELECT * FROM estrelaPublicacao;
 
-SELECT a.id AS idAviso,
-a.titulo,
-a.descricao,
-a.fk_usuario,
-a.imagem,
-u.id AS idUsuario,
-u.nome,
-u.email,
-u.senha,
-u.foto,
-COUNT(er.estrela)
-FROM aviso AS a
-JOIN usuario AS u ON fk_usuario = u.id
-LEFT JOIN estrelaPublicacao AS er ON fkAviso = a.id
-GROUP BY a.id
-ORDER BY a.id DESC;
+
+
+
+
+
+
+;
 
 
 
