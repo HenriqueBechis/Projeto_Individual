@@ -30,7 +30,6 @@ CREATE TABLE aviso (
 	descricao VARCHAR(150),
 	fk_usuario INT,
 	imagem VARCHAR(300),
-	estrela INT,
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 );
 
@@ -63,7 +62,51 @@ CREATE TABLE estrelaPublicacao(
 	primary Key (fkUsuario, fkAviso)
 );
 SELECT * FROM estrelaPublicacao;
-INSERT INTO estrelaPublicacao VALUES(1,20,1)
+
+SELECT a.id AS idAviso,
+a.titulo,
+a.descricao,
+a.fk_usuario,
+a.imagem,
+u.id AS idUsuario,
+u.nome,
+u.email,
+u.senha,
+u.foto,
+COUNT(er.estrela)
+FROM aviso AS a
+JOIN usuario AS u ON fk_usuario = u.id
+LEFT JOIN estrelaPublicacao AS er ON fkAviso = a.id
+GROUP BY a.id
+ORDER BY a.id DESC;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     SELECT 
             a.id AS idAviso,
             a.titulo,

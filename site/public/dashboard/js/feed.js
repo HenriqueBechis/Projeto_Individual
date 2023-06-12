@@ -119,7 +119,7 @@ function atualizarFeed() {
                     spanImg.innerHTML = `<img src="../../assets/${publicacao.foto}" id="" >`;
                     spanImg2.innerHTML = `<img src="../../assets/${publicacao.fotoDesc}" id="" >`;
                     spanTitulo.innerHTML = "Tema: <b>" + publicacao.titulo + "</b>";
-                    spanNome.innerHTML = `<b><a href="pessoa.html">` + publicacao.nome + "</a></b>";
+                    spanNome.innerHTML = `<b>` + publicacao.nome + "</b>";
                     spanEstrela.innerHTML ="Estrelas:" + publicacao.Estrelas;
                     divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
                     //botões
@@ -132,6 +132,7 @@ function atualizarFeed() {
                     /* Definição das classes das divs e spans */
                     //Spans
                     spanTitulo.id = "inputNumero" + publicacao.idAviso;
+                    spanNome.setAttribute("onclick", `visitarPerfil(${publicacao.idAviso})`)
                     spanImg.className = "spanImg";
                     spanImg2.className = "spanImg2";   
                     spanNome.className = "publicacao-nome";
@@ -234,4 +235,8 @@ function darEstrelaFeed(idAviso){
         console.log(`#ERRO: ${resposta}`)
     });
     return false;
+}
+function visitarPerfil(){
+    
+    window.location = "/dashboard/pessoa.html"
 }
