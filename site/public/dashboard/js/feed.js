@@ -211,12 +211,16 @@ function testar() {
     return false;
 }
 function darEstrelaFeed(idAviso){
-
-    fetch(`/avisos/darEstrelaFeed/${idAviso}`,{
-        method: "PUT",
+    var idUsuario = sessionStorage.ID_USUARIO;
+    var corpo = {
+        idAviso: idAviso
+    }
+    fetch(`/avisos/darEstrelaFeed/${idUsuario}`,{
+        method: "POST",
         headers: {
             "Content-type": "application/json"
         },
+        body: JSON.stringify(corpo)
     }).then(function (resposta){
         console.log("resposta: ", resposta);
         if(resposta.ok){

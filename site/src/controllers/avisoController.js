@@ -96,8 +96,10 @@ function darEstrela(req, res) {
 }
 
 function darEstrelaFeed(req, res) {
-    var idAviso = req.params.idAviso
-    avisoModel.darEstrelaFeed(idAviso).then(function (resultado) {
+    var idAviso = req.body.idAviso;
+    var idUsuario = req.params.idUsuario
+    avisoModel.darEstrelaFeed(idUsuario, idAviso)
+    .then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {

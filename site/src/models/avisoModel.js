@@ -9,7 +9,6 @@ function listar() {
             a.descricao,
             a.fk_usuario,
             a.imagem AS fotoDesc,
-            a.estrela AS Estrelas,
             u.id AS idUsuario,
             u.nome,
             u.email,
@@ -89,6 +88,7 @@ function listarPorUsuario(idUsuario) {
     return database.executar(instrucao);
 }
 
+/* Adicionando estrela à resposta */
 function darEstrela(idUsuario, idResposta) {
     var instrucao = `
     INSERT INTO estrelaResposta(fk_usuario, fk_resposta, estrela) VALUES (${idUsuario},${idResposta},1);
@@ -97,9 +97,10 @@ function darEstrela(idUsuario, idResposta) {
     return database.executar(instrucao);
 }
 
-function darEstrelaFeed(idAviso){
+/* Adicionando estrela á publicação do feed */
+function darEstrelaFeed(idUsuario,idAviso){
     var instrucao = `
-    UPDATE aviso SET estrela = estrela + 1 WHERE id = ${idAviso}
+    INSERT INTO estrelaPublicacao(fkUsuario, fkAviso, estrela) VALUES (${idUsuario}, ${idAviso}, 1);
     `
     console.log(instrucao)
     return database.executar(instrucao);

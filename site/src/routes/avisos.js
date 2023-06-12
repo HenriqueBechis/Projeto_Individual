@@ -36,7 +36,7 @@ router.post("/darEstrela/:idUsuario", function (req, res) {
     avisoController.darEstrela(req, res);
 });
 
-router.put("/darEstrelaFeed/:idAviso", function (req,res) {
+router.post("/darEstrelaFeed/:idUsuario", function (req,res) {
     avisoController.darEstrelaFeed(req,res);
 });
 

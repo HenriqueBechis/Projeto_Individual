@@ -23,7 +23,7 @@ CREATE TABLE usuario (
 SELECT foto FROM usuario WHERE id = 1;
 SELECT * FROM usuario;
 
- UPDATE usuario SET instrumento = 'efefe' WHERE id = 1;
+
 CREATE TABLE aviso (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	titulo VARCHAR(100),
@@ -33,7 +33,7 @@ CREATE TABLE aviso (
 	estrela INT,
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 );
-ALTER TABLE aviso ADD COLUMN estrela INT;
+
 SELECT * FROM aviso;
 -- DELETE FROM resposta WHERE idResposta =;
 CREATE Table resposta(
@@ -53,3 +53,47 @@ CREATE TABLE estrelaResposta(
 	Foreign Key (fk_resposta) REFERENCES resposta(idResposta) ON DELETE CASCADE, 
 	PRIMARY KEY  (fk_usuario, fk_resposta)
 );
+
+CREATE TABLE estrelaPublicacao(
+	fkUsuario INT,
+	fkAviso INT,
+	estrela INT,
+	Foreign Key (fkUsuario) REFERENCES usuario(id),
+	Foreign Key (fkAviso) REFERENCES aviso(id) on delete CASCADE,
+	primary Key (fkUsuario, fkAviso)
+);
+SELECT * FROM estrelaPublicacao;
+INSERT INTO estrelaPublicacao VALUES(1,20,1)
+    SELECT 
+            a.id AS idAviso,
+            a.titulo,
+            a.descricao,
+            a.fk_usuario,
+            a.imagem AS fotoDesc,
+            u.id AS idUsuario,
+            u.nome,
+            u.email,
+            u.senha,
+            u.foto,
+            COUNT(ep.estrela) AS estrela
+        FROM aviso a
+        INNER JOIN usuario u ON a.fk_usuario = u.id
+        LEFT JOIN estrelaPublicacao ep ON ep.fkAviso = idAviso
+		GROUP BY idAviso
+		;
+
+		 SELECT 
+    r.idResposta AS idResposta,
+    r.fk_aviso,
+    r.descricao,
+    u.id AS idUsuario,
+    u.nome,
+    u.email,
+    u.senha,
+    u.foto,
+	COUNT(er.estrela) AS Estrela
+    FROM resposta r
+    INNER JOIN usuario u ON r.fk_usuario = u.id
+	LEFT JOIN estrelaResposta er ON er.fk_resposta = idResposta
+	GROUP BY idResposta
+	;
