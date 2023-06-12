@@ -54,4 +54,41 @@ function Seguir() {
         console.log(`#ERRO: ${resposta}`)
     })
     return false;
+};
+/* Função para listar os seguidores */
+function listarSeguidores(){
+    var idSeguido = sessionStorage.ID_VISITANDO;
+    fetch(`/perfil/listarSeguidores/${idSeguido}`).then(function (resposta) {
+        if(resposta.ok){
+            if(resposta.status == 204){
+                var listaSeguidores = document.getElementById("listaSeguidores")
+                var mensagem = document.createElement("span");
+                mensagem.innerHTML = "Nenhum resultado encontrado."
+                listaSeguidores.appendChild(mensagem);
+                throw "Nenhum resultado encontrado!!";
+            }
+
+            resposta.json().then(function (resposta) {
+                console.log("Dados recebidos: ", JSON.stringify(resposta));
+                var listaSeguidores = document.getElementById("listaSeguidores");
+                ListaSeguidores.innerHTML = "";
+
+                //plotagem dos seguidores
+                for (let i = 0; i < resposta.length; i++) {
+                    var publicacao = resposta[i];
+                    
+                    //Criando os elementos HTML
+                    var spanNome = document.createElement("span");
+                    
+                    spanNome.innerHTML = "Nome: <b>" + publicacao.nome + "</b>"
+
+                    ListaSeguidores.appendChild(spanNome);
+                }
+            });
+        } else {
+            throw (`Houve um erro na API!`)
+        }
+    }).catch(function (resposta) {
+        console.error(resposta);
+    });
 }

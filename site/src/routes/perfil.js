@@ -27,6 +27,10 @@ router.get("/mostrarFoto/:idUsuario", function(req,res) {
     perfilController.mostrarFoto(req,res);
 })
 
+router.get("/listarSeguidores/:idSeguido", function(req,res) {
+    perfilController.listarSeguidores(req,res);
+});
+
 router.post("/alterarImagem/:idUsuario", upload.single('imgNova'), (req, res) => {
     perfilController.alterarImagem(req, res);
 });

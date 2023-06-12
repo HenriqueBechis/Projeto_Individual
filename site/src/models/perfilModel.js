@@ -74,6 +74,18 @@ function seguir(idUsuario, idSeguido){
     return database.executar(instrucao);
 }
 
+function listarSeguidores (idSeguido){
+    var instrucao = `
+    SELECT 
+	u.nome,
+	u.foto
+	FROM usuario u
+	JOIN seguidores s ON fkSeguidor = id
+	AND s.idSeguido = ${idSeguido}
+    `
+    return database.executar(instrucao);
+}
+
 module.exports = {
     editarNome,
     editarIdade,
@@ -82,5 +94,6 @@ module.exports = {
     mostrarDados,
     mostrarFoto,
     seguir,
+    listarSeguidores,
     alterarImagem
 }

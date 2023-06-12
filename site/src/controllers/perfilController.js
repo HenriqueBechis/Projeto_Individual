@@ -140,6 +140,22 @@ function seguir(req, res){
     });
 }
 
+function listarSeguidores(req,res){
+    var idSeguido = req.params.idSeguido;
+    perfilModel.listarSeguidores(idSeguido)
+        .then(
+            function(resultado){
+                res.json(resultado);
+            }
+        )
+        .catch(
+            function (erro){
+                console.log(erro);
+                console.log("Houve um erro ao buscar os dados: ", erro.sqlMessage);
+            }
+        )
+}
+
 module.exports = {
     editarNome,
     editarIdade,
@@ -148,5 +164,6 @@ module.exports = {
     mostrarDados,
     mostrarFoto,
     seguir,
+    listarSeguidores,
     alterarImagem
 }

@@ -21,6 +21,18 @@ CREATE TABLE seguidores(
 	Foreign Key (fkSeguidor) REFERENCES usuario(id),
 	PRIMARY KEY (idSeguido, fkSeguidor)
 );
+
+SELECT 
+	u.nome,
+	u.foto
+	FROM usuario u
+	JOIN seguidores s ON fkSeguidor = id
+	AND s.idSeguido = 4;
+
+
+
+
+SELECT * FROM seguidores;
 SELECT * FROM usuario;
 CREATE TABLE aviso (
 	id INT PRIMARY KEY AUTO_INCREMENT,
