@@ -18,7 +18,8 @@ CREATE TABLE seguidores(
 	idSeguido INT,
 	fKSeguidor INT,
 	Foreign Key (idSeguido) REFERENCES usuario(id),
-	Foreign Key (fkSeguidor) REFERENCES usuario(id)
+	Foreign Key (fkSeguidor) REFERENCES usuario(id),
+	PRIMARY KEY (idSeguido, fkSeguidor)
 );
 SELECT * FROM usuario;
 CREATE TABLE aviso (

@@ -31,4 +31,8 @@ router.post("/alterarImagem/:idUsuario", upload.single('imgNova'), (req, res) =>
     perfilController.alterarImagem(req, res);
 });
 
+router.post("/seguir/:idUsuario", function (req,res) {
+    perfilController.seguir(req,res);
+});
+
 module.exports = router;

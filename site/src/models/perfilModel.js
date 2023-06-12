@@ -67,6 +67,13 @@ function alterarImagem(foto, idUsuario) {
     return database.executar(instrucao);
 }
 
+function seguir(idUsuario, idSeguido){
+    var instrucao = `
+    INSERT INTO seguidores(idSeguido, fkSeguidor) VALUES (${idSeguido}, ${idUsuario})
+    `
+    return database.executar(instrucao);
+}
+
 module.exports = {
     editarNome,
     editarIdade,
@@ -74,5 +81,6 @@ module.exports = {
     mostrarNome,
     mostrarDados,
     mostrarFoto,
+    seguir,
     alterarImagem
 }
