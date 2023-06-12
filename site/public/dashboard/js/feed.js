@@ -97,80 +97,95 @@ function atualizarFeed() {
                 for (let i = 0; i < resposta.length; i++) {
                     var publicacao = resposta[i];
 
-                    // criando e manipulando elementos do HTML via JavaScript
+                    /* criando e manipulando elementos do HTML via JavaScript*/
+                    //spans e divs
                     var divPublicacao = document.createElement("div");
                     var spanImg = document.createElement("div");
                     var spanImg2 = document.createElement("div");
                     var spanTitulo = document.createElement("span");
                     var spanNome = document.createElement("span");
+                    var spanEstrela = document.createElement("span");
                     var divDescricao = document.createElement("div");
                     var divButtons = document.createElement("div");
+                    var divIndice = document.createElement("div");
+                    //botões
                     var btnEstrela = document.createElement("button");
                     var btnEditar = document.createElement("button");
                     var btnDeletar = document.createElement("button");
                     var btnResponder = document.createElement("button");
-                    var divIndice = document.createElement("div");
 
-
+                    /*Defição do innerHTML*/
+                    //spans e divs
                     spanImg.innerHTML = `<img src="../../assets/${publicacao.foto}" id="" >`;
                     spanImg2.innerHTML = `<img src="../../assets/${publicacao.fotoDesc}" id="" >`;
                     spanTitulo.innerHTML = "Tema: <b>" + publicacao.titulo + "</b>";
                     spanNome.innerHTML = `<b><a href="pessoa.html">` + publicacao.nome + "</a></b>";
+                    spanEstrela.innerHTML ="Estrelas:" + publicacao.Estrelas;
                     divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
+                    //botões
                     btnEstrela.innerHTML = "Estrela";
                     btnEditar.innerHTML = "Editar";
                     btnDeletar.innerHTML = "Deletar";
                     btnResponder.innerHTML = "Responder";
-                    
-                    divPublicacao.className = "publicacao";
-                    spanTitulo.id = "inputNumero" + publicacao.idAviso;
+                    /* Fim da definição do innerHTML */
 
+                    /* Definição das classes das divs e spans */
+                    //Spans
+                    spanTitulo.id = "inputNumero" + publicacao.idAviso;
                     spanImg.className = "spanImg";
                     spanImg2.className = "spanImg2";   
                     spanNome.className = "publicacao-nome";
                     spanTitulo.className = "publicacao-titulo";
+                    spanEstrela.ClassName = "spanEstrela";
+                    //Divs
+                    divPublicacao.className = "publicacao";
                     divDescricao.className = "publicacao-descricao";
                     divIndice.className = "div-indice";
-
                     divButtons.className = "div-buttons";
+                    /* Fim da definição das classes de divs e spans */
 
+                    /* Definição das propriedades dos botões */
+                    //Botão para estrela
                     btnEstrela.className = "publicacao-btn-editar";
                     btnEstrela.id = "btnEstrela" + publicacao.idAviso;
                     btnEstrela.setAttribute("onclick", `darEstrelaFeed(${publicacao.idAviso})`)
-
+                    //botão para edição da publicação
                     btnEditar.className = "publicacao-btn-editar"
                     btnEditar.id = "btnEditar" + publicacao.idAviso;
                     btnEditar.setAttribute("onclick", `editar(${publicacao.idAviso})`);
-
+                    //Botão para deletar
                     btnDeletar.className = "publicacao-btn-editar"
                     btnDeletar.id = "btnDeletar" + publicacao.idAviso;
                     btnDeletar.setAttribute("onclick", `deletar(${publicacao.idAviso})`);
-
+                    //Botão para responder a publicação
                     btnResponder.className = "publicacao-btn-editar"
                     btnResponder.id = "btnResponder" + publicacao.idAviso;
                     btnResponder.setAttribute("onclick", `responder(${publicacao.idAviso})`);
+                    /* Fim da definição das propriedades dos botões */
 
-
+                    /* Definição dos elementos pai/filho e organização da publicação */
                     divPublicacao.appendChild(spanImg);
                     divPublicacao.appendChild(divIndice);
                     divPublicacao.appendChild(spanNome);
                     divPublicacao.appendChild(spanTitulo);
                     divPublicacao.appendChild(divDescricao);
                     divPublicacao.appendChild(spanImg2);
+                    divPublicacao.appendChild(spanEstrela);
                     divIndice.appendChild(spanImg);
                     divIndice.appendChild(spanNome);
-
                     divPublicacao.appendChild(divButtons);
                     divButtons.appendChild(btnEstrela);
+                    //Validação para o usuário poder editar e deletar apenas o próprio aviso 
                     if (publicacao.idUsuario == sessionStorage.ID_USUARIO || sessionStorage.ID_USUARIO == 1) {
                         divButtons.appendChild(btnEditar);
                         divButtons.appendChild(btnDeletar);
                     }
                     divButtons.appendChild(btnResponder);
                     feed.appendChild(divPublicacao);
+                    /* Fim da definição dos elemtos pai/filho */
                 }
-
-                finalizarAguardar();
+                
+              
             });
         } else {
             throw ('Houve um erro na API!');

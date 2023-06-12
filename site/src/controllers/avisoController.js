@@ -18,9 +18,9 @@ function listar(req, res) {
         res.status(500).json(erro.sqlMessage);
     });
 }
-function listarRespostas(req,res){
-    avisoModel.listarRespostas().then(function(resultado) {
-        if(resultado.length > 0) {
+function listarRespostas(req, res) {
+    avisoModel.listarRespostas().then(function (resultado) {
+        if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
             res.status(204).send("Nenhum resultado encontrado")
@@ -78,15 +78,16 @@ function pesquisarDescricao(req, res) {
         );
 }
 
-function darEstrela(req,res){
+function darEstrela(req, res) {
     var idResposta = req.body.idResposta;
     var idUsuario = req.params.idUsuario;
-    avisoModel.darEstrela(idUsuario, idResposta).then(function(resultado) {
-        if(resultado.length > 0) {
+    avisoModel.darEstrela(idUsuario, idResposta)
+    .then(function (resultado) {
+        if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
             res.status(204).send("Nenhum resultado encontrado")
-        }s
+        }
     }).catch(function (erro) {
         console.log(erro);
         console.log("Houve um erro ao buscar os avisos: ", erro.sqlMessage);
@@ -94,15 +95,15 @@ function darEstrela(req,res){
     });
 }
 
-function darEstrelaFeed(req,res){
+function darEstrelaFeed(req, res) {
     var idAviso = req.params.idAviso
-    avisoModel.darEstrelaFeed(idAviso).then(function(resultado){
-        if(resultado.length > 0){
+    avisoModel.darEstrelaFeed(idAviso).then(function (resultado) {
+        if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
             res.status(204).send("nenhum resultado encontrado")
         }
-    }).catch(function(erro){
+    }).catch(function (erro) {
         console.log(erro);
         console.log("Houve um erro ao buscar os avisos ", erro.sqlMessage);
         res.status(500).json(erro.sqlMessage);
@@ -149,10 +150,10 @@ function responder(req, res) {
         res.status(400).send("A descrição está indefinido!");
     } else if (idUsuario == undefined) {
         res.status(403).send("O id do usuário está indefinido!");
-    } else if(idAviso == undefined){
+    } else if (idAviso == undefined) {
         res.status(403).send("O id do aviso está indefinido!");
     } else {
-        avisoModel.responder(idUsuario,idAviso, descricao)
+        avisoModel.responder(idUsuario, idAviso, descricao)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -234,7 +235,7 @@ module.exports = {
     publicar,
     editar,
     deletar,
-    responder, 
+    responder,
     darEstrela,
     darEstrelaFeed,
     deletarResposta

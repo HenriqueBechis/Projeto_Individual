@@ -9,6 +9,7 @@ function listar() {
             a.descricao,
             a.fk_usuario,
             a.imagem AS fotoDesc,
+            a.estrela AS Estrelas,
             u.id AS idUsuario,
             u.nome,
             u.email,

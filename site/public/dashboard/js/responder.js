@@ -119,50 +119,61 @@ function atualizarFeed() {
                 for (let i = 0; i < resposta.length; i++) {
                     var publicacao = resposta[i];
                     if (sessionStorage.ID_POSTAGEM_RESPONDENDO == publicacao.fk_aviso) {
-                        // criando e manipulando elementos do HTML via JavaScript
+
+                        /*criando e manipulando elementos do HTML via JavaScript*/
+                        // Spans e divs
                         var divPublicacao = document.createElement("div");
                         var spanImg = document.createElement("div");
-                        
                         var spanNome = document.createElement("span");
                         var spanEstrela = document.createElement("span");
                         var divDescricao = document.createElement("div");
                         var divButtons = document.createElement("div");
+                        var divIndice = document.createElement("div");
+                        //botões
                         var btnEditar = document.createElement("button");
                         var btnDeletar = document.createElement("button");
-                        var btnEstrela = document.createElement("button");
-                        var divIndice = document.createElement("div");
+                        var btnEstrela = document.createElement("button");  
 
-
+                        /* Definição dos innerHTML */
+                        //spans e divs
                         spanImg.innerHTML = `<img src="../../assets/${publicacao.foto}" id="" >`;
-                       
                         spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
                         spanEstrela.innerHTML = " Estrelas: " + publicacao.Estrela;
                         divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
+                        //Botões
                         btnEditar.innerHTML = "Editar";
                         btnDeletar.innerHTML = "Deletar";
                         btnEstrela.innerHTML = "Estrela"
+                        /* Fim da definição dos innerHTML */
 
-                        divPublicacao.className = "publicacao";
+                        /* Definição das classes das divs e spans */
+                        // spans
                         spanNome.className = "publicacao-nome";
                         spanEstrela.className = "publicacao-nome";
-                        divDescricao.className = "publicacao-descricao";
                         spanImg.className = "spanImg";
-                       
+                        //divs
+                        divDescricao.className = "publicacao-descricao";
+                        divPublicacao.className = "publicacao";
                         divButtons.className = "div-buttons";
                         divIndice.className = "div-indice";
 
+                        /* Definição das propriedades dos botões */
+                        //botão para edição
                         btnEditar.className = "publicacao-btn-editar"
                         btnEditar.id = "btnEditar" + publicacao.idAviso;
                         btnEditar.setAttribute("onclick", `editar(${publicacao.idAviso})`);
 
+                        // Botão para deleta
                         btnDeletar.className = "publicacao-btn-editar"
                         btnDeletar.id = "btnDeletar" + publicacao.idAviso;
                         btnDeletar.setAttribute("onclick", `deletarResposta(${publicacao.idResposta})`);
 
+                        //Botão para dar estrela
                         btnEstrela.className = "btn-Estrela";
                         btnEstrela.id = "btnEstrela" + publicacao.idAviso;
                         btnEstrela.setAttribute("onclick", `darEstrela(${publicacao.idResposta})`);
 
+                        /* Definição dos elementos pai/Filho e organização das publicação */
                         divPublicacao.appendChild(spanImg);
                         divPublicacao.appendChild(divIndice)
                         divPublicacao.appendChild(spanNome);
@@ -171,16 +182,17 @@ function atualizarFeed() {
                         divPublicacao.appendChild(divButtons);
                         divIndice.appendChild(spanImg);
                         divIndice.appendChild(spanNome);
+                        divButtons.appendChild(btnEstrela);
+                        //Validação para o usuário poder editar ou deletar apenas o próprio comentário
                         if (publicacao.idUsuario == sessionStorage.ID_USUARIO || sessionStorage.ID_USUARIO == 1) {
                             divButtons.appendChild(btnEditar);
                             divButtons.appendChild(btnDeletar);
                         }
-                        divButtons.appendChild(btnEstrela);
                         feed.appendChild(divPublicacao);
-
+                        /* Fim da definição dos elementos pai/Filho */
                     }
                 }
-                // finalizarAguardar();
+                
             });
         } else {
             throw ('Houve um erro na API!');
