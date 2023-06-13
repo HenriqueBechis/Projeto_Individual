@@ -37,9 +37,21 @@ CREATE TABLE aviso (
 	imagem VARCHAR(300),
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 );
+ SELECT 
+	a.titulo,
+	a.descricao,
+	a.imagem AS fotoDesc,
+	u.foto AS foto,
+	u.nome,
+	COUNT(ep.estrela)
+ FROM aviso AS a      
+	LEFT JOIN estrelaPublicacao ep ON ep.fkAviso = a.id
+	JOIN usuario u ON a.fk_usuario = u.id
+	WHERE a.fk_usuario = 1
+	GROUP BY a.id;
 
-SELECT * FROM aviso;
--- DELETE FROM resposta WHERE idResposta =;
+
+
 CREATE Table resposta(
 	idResposta INT PRIMARY KEY AUTO_INCREMENT,
 	fk_usuario INT,

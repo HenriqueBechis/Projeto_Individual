@@ -31,6 +31,10 @@ router.get("/listarSeguidores/:idSeguido", function(req,res) {
     perfilController.listarSeguidores(req,res);
 });
 
+router.get("/listarDuvidas/:idUsuario", function(req,res){
+    perfilController.listarDuvidas(req,res);
+})
+
 router.post("/alterarImagem/:idUsuario", upload.single('imgNova'), (req, res) => {
     perfilController.alterarImagem(req, res);
 });

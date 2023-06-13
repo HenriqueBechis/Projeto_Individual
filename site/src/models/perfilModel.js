@@ -86,6 +86,24 @@ function listarSeguidores (idSeguido){
     return database.executar(instrucao);
 }
 
+function listarDuvidas(idUsuario){
+    var instrucao = `
+    SELECT 
+	a.titulo,
+	a.descricao,
+	a.imagem AS fotoDesc,
+	u.foto AS foto,
+	u.nome,
+	COUNT(ep.estrela) AS Estrelas
+ FROM aviso AS a      
+	LEFT JOIN estrelaPublicacao ep ON ep.fkAviso = a.id
+	JOIN usuario u ON a.fk_usuario = u.id
+	WHERE a.fk_usuario = ${idUsuario}
+	GROUP BY a.id;
+    `
+    return database.executar(instrucao);
+}
+
 module.exports = {
     editarNome,
     editarIdade,
@@ -95,5 +113,6 @@ module.exports = {
     mostrarFoto,
     seguir,
     listarSeguidores,
+    listarDuvidas,
     alterarImagem
 }
