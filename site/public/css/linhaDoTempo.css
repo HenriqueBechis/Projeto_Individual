@@ -1,6 +1,83 @@
 body{
-    color: white;
+    background-color: black;
+    color: rgb(194, 117, 78);
 }
 video{
     height: 50vh;
+}
+.primeiraSessao{
+    background-image: url(../img/imgCCB.jpg);
+    background-size: cover;
+    z-index: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 70px;
+    text-align: center;
+    position: relative;
+    opacity: .3;
+}
+.primeiraSessao::before{
+    content: "";
+    position:absolute;
+    inset: 0;
+    background-image: linear-gradient(
+        to top,
+        transparent,
+        black 95%
+    );
+    z-index: -1;
+}
+.subtituloEsquerdo {
+    display: flex;
+    background-color: rgb(194, 117, 78);
+    font-size: 25px;
+    font-weight: bold;
+    width: 45%;
+    height: 20px;
+    margin-top: 25px;
+    border-radius: 0px 15px 15px 0px;
+}
+.container {
+    display: flex;
+    width: 90%;
+    margin: auto;
+}
+.conteudoEsquerdo {
+    margin-top: 15px;
+    font-size: 25px;
+    width: 50%;
+}
+.conteudoEsquerdo {
+    margin-top: 15px;
+    font-size: 25px;
+    width: 50%;
+}
+
+.subtituloDireito {
+    display: flex;
+    justify-content: right;
+}
+
+.subtituloDireito p {
+    background-color: rgb(194, 117, 78);
+    text-align: right;
+    font-size: 25px;
+    font-weight: bold;
+    width: 45%;
+    height: 20px;
+    margin-top: 25px;
+    border-radius: 15px 0px 0px 15px;
+}
+.conteudoDireito {
+    display: flex;
+    margin-top: 15px;
+    margin-left: 95vh;
+    flex-direction: column;
+    justify-content: right;
+    width: 80vh;
+    text-align: justify;
+    font-size: 25px;
 }

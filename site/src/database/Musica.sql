@@ -12,8 +12,6 @@ CREATE TABLE usuario (
 	instrumento VARCHAR(20),
 	foto VARCHAR(300)
 );
-
--- tabela para os seguidores
 CREATE TABLE seguidores(
 	idSeguido INT,
 	fKSeguidor INT,
@@ -21,12 +19,6 @@ CREATE TABLE seguidores(
 	Foreign Key (fkSeguidor) REFERENCES usuario(id),
 	PRIMARY KEY (idSeguido, fkSeguidor)
 );
-
-
-
-
-
-
 SELECT * FROM seguidores;
 SELECT * FROM usuario;
 CREATE TABLE aviso (
@@ -37,21 +29,6 @@ CREATE TABLE aviso (
 	imagem VARCHAR(300),
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 );
- SELECT 
-	a.titulo,
-	a.descricao,
-	a.imagem AS fotoDesc,
-	u.foto AS foto,
-	u.nome,
-	COUNT(ep.estrela)
- FROM aviso AS a      
-	LEFT JOIN estrelaPublicacao ep ON ep.fkAviso = a.id
-	JOIN usuario u ON a.fk_usuario = u.id
-	WHERE a.fk_usuario = 1
-	GROUP BY a.id;
-
-
-
 CREATE Table resposta(
 	idResposta INT PRIMARY KEY AUTO_INCREMENT,
 	fk_usuario INT,
@@ -80,13 +57,18 @@ CREATE TABLE estrelaPublicacao(
 );
 SELECT * FROM estrelaPublicacao;
 
-
-
-
-
-
-
-;
+-- SELECT 
+-- 	a.titulo,
+-- 	a.descricao,
+-- 	a.imagem AS fotoDesc,
+-- 	u.foto AS foto,
+-- 	u.nome,
+-- 	COUNT(ep.estrela)
+--  FROM aviso AS a      
+-- 	LEFT JOIN estrelaPublicacao ep ON ep.fkAviso = a.id
+-- 	JOIN usuario u ON a.fk_usuario = u.id
+-- 	WHERE a.fk_usuario = 1
+-- 	GROUP BY a.id;
 
 
 
