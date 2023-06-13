@@ -234,6 +234,9 @@ function darEstrelaFeed(idAviso){
     });
     return false;
 }
-
-
-
+function editarPerfil(){
+    window.location = "/dashboard/perfil.html"
+}
+function mostrarAnalytics(){
+    window.location = "/dashboard/analytics.html"
+}

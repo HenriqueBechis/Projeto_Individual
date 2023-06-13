@@ -22,14 +22,18 @@
         </header> -->
         <div class="header">   
             <div class="hello">
-                <div class="imgPerfil">
-                    <img src="" id="usuarioFoto" >
-                </div>
-                <h3><span id="b_usuario"></span></h3>
             </div>
             <h1>HarmonyHub</h1>
             <h1><a href="perfil.html">Alterar perfil</a></h1>
-         
+        </div>
+        <div class="headerEsquerdo">
+            <div class="imgPerfil">
+                <img src="" id="usuarioFoto" onclick="editarPerfil()">
+                <h3><span id="b_usuario" class="nomeBar"></span></h3>
+            </div>
+        </div>
+        <div class="headerDireito">
+            <h3 class="nomeBar" onclick="mostrarAnalytics()">analytcs</h3>
         </div>
         <div class="feed">
             <div class="container">

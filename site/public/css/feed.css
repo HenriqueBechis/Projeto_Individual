@@ -11,8 +11,8 @@ body{
     background-color: #242526;
     position: fixed;
     inset:0;
-    z-index: 1;
-    height: 75px;
+    z-index: 2;
+    height: 70px;
     width: 100vw;
     top: 0px;
     display: flex;
@@ -21,10 +21,47 @@ body{
     border-bottom: solid;
     border-color: #444546;
 }
+.headerEsquerdo{
+    background-color: #242526;
+    position: fixed;
+    z-index: 1;
+    height: calc(100vh - 70px);
+    width: 80px;
+    left: 0px;
+    bottom: 0px;
+    display: flex;
+    justify-content: center;
+    border-bottom: solid;
+    border-top: solid;
+    border-right: solid;
+    border-color: #444546;
+}
+.headerDireito{
+    background-color: #242526;
+    position: fixed;
+    z-index: 1;
+    height: calc(100vh - 70px);
+    width: 80px;
+    right: 0px;
+    bottom: 0px;
+    display: flex;
+    justify-content: center;
+    border-bottom: solid;
+    border-top: solid;
+    border-left: solid;
+    border-color: #444546;
+}
+#usuarioFoto img{
+    cursor: pointer;
+}
+.nomeBar{
+    font-size: 15px;
+}
 .hello{
     display: flex;
 }
 .imgPerfil img{
+    margin-top: 15px;
     width: 50px;
     border-radius:15px ;
 }

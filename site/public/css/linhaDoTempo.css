@@ -81,3 +81,18 @@ video{
     text-align: justify;
     font-size: 25px;
 }
+
+/* Linha do tempo  */
+.redonda{
+    margin-left:5% ;
+    background-color: white;
+    width: 20px;
+    border-radius: 0% 50% 50% 0%;
+    padding-bottom: 10px;
+}
+.reta{
+    margin-left:5% ;
+    width: 5px;
+    height: 20px;
+    background-color: white;
+}
