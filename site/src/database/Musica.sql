@@ -22,12 +22,7 @@ CREATE TABLE seguidores(
 	PRIMARY KEY (idSeguido, fkSeguidor)
 );
 
-SELECT 
-	u.nome,
-	u.foto
-	FROM usuario u
-	JOIN seguidores s ON fkSeguidor = id
-	AND s.idSeguido = 4;
+
 
 
 

@@ -78,7 +78,7 @@ function listarSeguidores (idSeguido){
     var instrucao = `
     SELECT 
 	u.nome,
-	u.foto
+	u.foto AS foto
 	FROM usuario u
 	JOIN seguidores s ON fkSeguidor = id
 	AND s.idSeguido = ${idSeguido}

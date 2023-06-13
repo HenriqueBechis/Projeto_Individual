@@ -70,7 +70,7 @@ function listarSeguidores(){
 
             resposta.json().then(function (resposta) {
                 console.log("Dados recebidos: ", JSON.stringify(resposta));
-                var listaSeguidores = document.getElementById("listaSeguidores");
+                var ListaSeguidores = document.getElementById("ListaSeguidores");
                 ListaSeguidores.innerHTML = "";
 
                 //plotagem dos seguidores
@@ -79,9 +79,17 @@ function listarSeguidores(){
                     
                     //Criando os elementos HTML
                     var spanNome = document.createElement("span");
+                    var spanImg = document.createElement("span");
                     
+                    //Definição dos innerHTML
                     spanNome.innerHTML = "Nome: <b>" + publicacao.nome + "</b>"
+                    spanImg.innerHTML = `<img src="../../assets/${publicacao.foto}" id="" >`;
+                    
+                    //Definição das propriedades dos elementos
+                    spanImg.className = "imgSeguidor";
 
+                    //Organização dos elementos HTML
+                    ListaSeguidores.appendChild(spanImg);
                     ListaSeguidores.appendChild(spanNome);
                 }
             });
@@ -91,4 +99,8 @@ function listarSeguidores(){
     }).catch(function (resposta) {
         console.error(resposta);
     });
+}
+/* Função para listar as duvidas */
+function listarDuvidas(){
+    
 }
