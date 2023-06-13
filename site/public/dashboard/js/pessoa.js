@@ -87,6 +87,9 @@ function listarSeguidores(){
                     
                     //Definição das propriedades dos elementos
                     spanImg.className = "imgSeguidor";
+                    spanNome.setAttribute("onclick", `visitarPerfil(${publicacao.idUsuario})`)
+                    spanNome.className = "publicacao-nome";
+
 
                     //Organização dos elementos HTML
                     ListaSeguidores.appendChild(spanImg);

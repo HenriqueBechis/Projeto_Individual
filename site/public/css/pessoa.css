@@ -1,3 +1,6 @@
 .imgSeguidor img{
     height: 50px;
 }
+.publicacao-nome {
+    cursor: pointer;
+}

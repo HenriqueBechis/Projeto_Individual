@@ -77,6 +77,7 @@ function seguir(idUsuario, idSeguido){
 function listarSeguidores (idSeguido){
     var instrucao = `
     SELECT 
+    u.id AS idUsuario,
 	u.nome,
 	u.foto AS foto
 	FROM usuario u
