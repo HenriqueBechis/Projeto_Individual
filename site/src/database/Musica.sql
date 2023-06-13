@@ -12,6 +12,9 @@ CREATE TABLE usuario (
 	instrumento VARCHAR(20),
 	foto VARCHAR(300)
 );
+
+
+
 CREATE TABLE seguidores(
 	idSeguido INT,
 	fKSeguidor INT,
@@ -19,8 +22,10 @@ CREATE TABLE seguidores(
 	Foreign Key (fkSeguidor) REFERENCES usuario(id),
 	PRIMARY KEY (idSeguido, fkSeguidor)
 );
-SELECT * FROM seguidores;
-SELECT * FROM usuario;
+
+SELECT COUNT(*),
+instrumento FROM usuario 
+GROUP BY instrumento;
 CREATE TABLE aviso (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	titulo VARCHAR(100),
