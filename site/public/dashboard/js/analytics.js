@@ -59,7 +59,6 @@ function plotarGrafico(resposta) {
     const config = {
         type: 'bar',
         data: dados,
-      
     };
 
     // Adicionando gráfico criado em div na tela

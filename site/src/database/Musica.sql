@@ -31,7 +31,7 @@ CREATE TABLE aviso (
 	titulo VARCHAR(100),
 	descricao VARCHAR(150),
 	fk_usuario INT,
-	imagem VARCHAR(300),
+	imagem VARCHAR(300),	
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 );
 CREATE Table resposta(

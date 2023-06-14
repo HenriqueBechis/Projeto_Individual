@@ -46,7 +46,6 @@ function Seguir() {
     }).then(function (resposta) {
         console.log("resposta: ", resposta);
         if (resposta.ok) {
-            window.alert("Deu certo")
         }else if(resposta.status == 404){
             window.alert("Deu 404")
         }else {
