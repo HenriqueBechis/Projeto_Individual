@@ -14,12 +14,14 @@ function puxarDados(idUsuario) {
                     var idade = resposta[0].idade
                     var nome = resposta[0].nome
                     var instrumento = resposta[0].instrumento
+                    var descricao = resposta[0].descricao
                     var Foto = document.getElementById("usuarioFoto");
                     Foto.src = `../assets/${infos.foto}`;
                     console.log("Dados recebidos: ", JSON.stringify(resposta));
                     b_usuario.innerHTML = `${nome}`;
                     idade_usuario.innerHTML = `${idade}<br>`
                     instrumento_usuario.innerHTML = `${instrumento} <br>`
+                    descricao_usuario.innerHTML = `${descricao} <br>`
                 })
         } else {
             throw ("Houve um erro na API");

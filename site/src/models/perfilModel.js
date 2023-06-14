@@ -48,7 +48,8 @@ function mostrarDados(idUsuario) {
         nome,
          idade, 
          instrumento,
-         foto 
+         foto, 
+         descricao 
          FROM usuario WHERE id = ${idUsuario};
     `
     console.log("executando a instrução SQL: \N" + instrucao)
