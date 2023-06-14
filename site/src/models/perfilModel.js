@@ -27,6 +27,13 @@ function editarInstrumento(novoInstrumento, idUsuario) {
     return database.executar(instrucao)
 }
 
+function editarDescricao(novaDescricao, idUsuario){
+    var instrucao = `
+        UPDATE usuario SET descricao = '${novaDescricao}' WHERE id = ${idUsuario};
+    `
+    return database.executar(instrucao);
+}
+
 function mostrarNome(idUsuario) {
     var instrucao = `
         SELECT nome FROM usuario WHERE id = ${idUsuario};
@@ -109,6 +116,7 @@ module.exports = {
     editarNome,
     editarIdade,
     editarInstrumento,
+    editarDescricao,
     mostrarNome,
     mostrarDados,
     mostrarFoto,

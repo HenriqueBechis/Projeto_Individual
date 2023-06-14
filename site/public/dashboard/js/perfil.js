@@ -96,6 +96,29 @@ function editarInstrumento(){
         console.log(`#ERRO ${resposta}`);
     })
 }
+function editarDescricao(){
+    var idUsuario = sessionStorage.ID_USUARIO;
+    var ax_novaDescricao = ipt_novaDescricao.value;
+    fetch(`/perfil/editarDescricao/${idUsuario}`,{
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            descricao: ax_novaDescricao
+        })
+    }).then(function(resposta){
+        if(resposta.ok) {
+            mostrarDados()
+        } else if(resposta.status == 404){
+            window.alert("deu 404");
+        } else {
+            throw("Houve um erro ao tentar realizar a postagem! Código da resposta:" + resposta.status);
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO ${resposta}`);
+    })
+}
 function novaImagem() {
     var idUsuario = sessionStorage.ID_USUARIO;
     const formData = new FormData();

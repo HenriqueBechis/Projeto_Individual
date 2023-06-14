@@ -10,10 +10,12 @@ CREATE TABLE usuario (
 	idade INT,
 	sexo VARCHAR(10),
 	instrumento VARCHAR(20),
-	foto VARCHAR(300)
+	foto VARCHAR(300),
+	descricao VARCHAR(300)
 );
 
-
+SELECT * FROM usuario;
+UPDATE usuario SET descricao = 'pra testar' WHERE id = 1;
 
 CREATE TABLE seguidores(
 	idSeguido INT,
@@ -23,9 +25,7 @@ CREATE TABLE seguidores(
 	PRIMARY KEY (idSeguido, fkSeguidor)
 );
 
-SELECT COUNT(*),
-instrumento FROM usuario 
-GROUP BY instrumento;
+
 CREATE TABLE aviso (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	titulo VARCHAR(100),

@@ -57,6 +57,24 @@ function editarInstrumento(req, res) {
         )
 }
 
+function editarDescricao(req,res){
+    var novaDescricao = req.body.descricao;
+    var idUsuario = req.params.idUsuario;
+    perfilModel.editarDescricao(novaDescricao, idUsuario)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage)
+            }
+        )
+}
+
 function mostrarNome(req, res) {
     var idUsuario = req.params.idUsuario
     perfilModel.mostrarNome(idUsuario)
@@ -176,6 +194,7 @@ module.exports = {
     editarNome,
     editarIdade,
     editarInstrumento,
+    editarDescricao,
     mostrarNome,
     mostrarDados,
     mostrarFoto,

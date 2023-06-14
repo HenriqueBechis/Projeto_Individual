@@ -15,6 +15,10 @@ router.put("/editarInstrumento/:idUsuario", function (req,res) {
     perfilController.editarInstrumento(req,res);
 });
 
+router.put("/editarDescricao/:idUsuario", function (req,res) {
+    perfilController.editarDescricao(req,res);
+});
+
 router.get("/mostrarNome/:idUsuario", function (req,res){
     perfilController.mostrarNome(req,res);
 });
