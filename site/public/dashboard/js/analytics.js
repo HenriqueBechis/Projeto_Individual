@@ -31,7 +31,7 @@ function plotarGrafico(resposta) {
             label: 'Instrumento',
             data: [],
             fill: false,
-            borderColor: 'rgb(75, 192, 192)',
+            backroundColor: 'rgb(28, 22, 73)',
             tension: 0.1
         }]
     };
@@ -45,7 +45,6 @@ function plotarGrafico(resposta) {
         var registro = resposta[i];
         labels.push(registro.instrumento);
         dados.datasets[0].data.push(registro.qtd);
-        
     }
 
     console.log('----------------------------------------------')
@@ -58,8 +57,9 @@ function plotarGrafico(resposta) {
 
     // Criando estrutura para plotar gráfico - config
     const config = {
-        type: 'bar',
+        type: 'doughnut',
         data: dados,
+      
     };
 
     // Adicionando gráfico criado em div na tela
@@ -67,7 +67,6 @@ function plotarGrafico(resposta) {
        document.getElementById(`myChartCanvas`),
        config
     );
-    setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
 }
 
   

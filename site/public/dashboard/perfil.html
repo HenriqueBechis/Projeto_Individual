@@ -1,50 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alterar perfil</title>
-    <link rel="stylesheet" href="../css/feed.css">
+    <link rel="stylesheet" href="../css/perfil.css">
     <link rel="stylesheet" href="../css/reset.css">
     <script src="../js/funcoes.js"></script>
     <script src="js/perfil.js"></script>
 </head>
+
 <body onload="validarSessao(),atualizarDados(), mostrarDados()">
-    <div class="header">
+    <div class="headerEsquerdo">
         <div class="imgPerfil">
             <img src="" id="usuarioFoto" style="width: 100px;">
         </div>
         <h1>HarmonyHub</h1>
-        <div class="hello">
-            
-            <h3>Nome: <span id="b_usuario"></span>!</h3>
-            <h3>Idade: <span id="idade_usuario"></span></h3>
-            <h3>Instrumento preferido: <span id="instrumento_usuario"></span></h3>
-        </div>
+
+
+        <h3>Nome: <span id="b_usuario"></span>!</h3>
+        <h3>Idade: <span id="idade_usuario"></span></h3>
+        <h3>Instrumento preferido: <span id="instrumento_usuario"></span></h3>
+
     </div>
     <div class="feed">
-    <div class="Perfil">
-        <p>Alterar nome</p>
-        <Input id="ipt_novoNome"></Input>
-        <button onclick="editarNome()">Alterar nome</button>
-        
-        <p>Alterar idade</p>
-        <Input id="ipt_novaIdade"></Input>
-        <button onclick="editarIdade()">Editar idade</button>
+        <div class="Perfil">
 
-        <p>Alterar instrumento preferido</p>
-        <Input id="ipt_novoInstrumento" placeholder="Escreva aqui"></Input>
-        <button onclick="editarInstrumento()">Editar instrumento</button>
+            <div class="label">
+                <p>Alterar nome</p>
+                <Input id="ipt_novoNome"></Input>
+                <button onclick="editarNome()">Alterar nome</button>
+            </div>
 
-        <p>Alterar imagem do perfil</p>
-        <input type="file" id="imgNova" name="imgNova">
-        <button onclick="novaImagem()">Enviar</button>
+            <div class="label">
+                <p>Alterar idade</p>
+                <Input id="ipt_novaIdade"></Input>
+                <button onclick="editarIdade()">Editar idade</button>
+            </div>
 
-        <p>Alterar descrição</p>
-        <Input id="ipt_novaDescricao"></Input>
-        <button onclick="editarDescricao()">Editar descrição</button>
-    </div>
-    
+            <div class="label">
+                <p>Alterar instrumento preferido</p>
+                <Input id="ipt_novoInstrumento" placeholder="Escreva aqui"></Input>
+                <button onclick="editarInstrumento()">Editar instrumento</button>
+            </div>
+
+            <div class="label">
+                <p>Alterar imagem do perfil</p>
+                <input type="file" id="imgNova" name="imgNova">
+                <button onclick="novaImagem()">Enviar</button>
+            </div>
+
+            <div class="label">
+                <p>Alterar descrição</p>
+                <Input id="ipt_novaDescricao"></Input>
+                <button onclick="editarDescricao()">Editar descrição</button>
+            </div>
+
+        </div>
+
 </body>
+
 </html>
