@@ -1,6 +1,9 @@
-body{
+
+@import url('https://fonts.googleapis.com/css2?family=Dosis&family=Playfair&family=Ubuntu:ital@1&display=swap');
+body {
     background-color: #18191A;
-    color: white
+    color: white;
+    font-family: 'Playfair', serif;
 }
 .headerEsquerdo{
     background-color: #242526;

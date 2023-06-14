@@ -1,16 +1,22 @@
-body{
+@import url('https://fonts.googleapis.com/css2?family=Dosis&family=Playfair&family=Ubuntu:ital@1&display=swap');
+
+body {
     background-color: #18191A;
-    color: white
+    color: white;
+    font-family: 'Playfair', serif;
+
 }
-.janela{
+
+.janela {
     width: 100%;
     display: flex;
     justify-content: center;
 }
-.header{
+
+.header {
     background-color: #242526;
     position: fixed;
-    inset:0;
+    inset: 0;
     z-index: 2;
     height: 70px;
     width: 100vw;
@@ -21,7 +27,8 @@ body{
     border-bottom: solid;
     border-color: #444546;
 }
-.headerEsquerdo{
+
+.headerEsquerdo {
     background-color: #242526;
     position: fixed;
     z-index: 1;
@@ -36,7 +43,8 @@ body{
     border-right: solid;
     border-color: #444546;
 }
-.headerDireito{
+
+.headerDireito {
     background-color: #242526;
     position: fixed;
     z-index: 1;
@@ -51,28 +59,34 @@ body{
     border-left: solid;
     border-color: #444546;
 }
-#usuarioFoto img{
+
+#usuarioFoto img {
     cursor: pointer;
 }
-.nomeBar{
+
+.nomeBar {
     font-size: 15px;
     cursor: pointer;
 }
-.hello{
+
+.hello {
     display: flex;
 }
-.imgPerfil img{
+
+.imgPerfil img {
     margin-top: 15px;
     width: 50px;
-    border-radius:15px ;
+    border-radius: 15px;
 }
+
 .imgPerfil {
     width: 50px;
     height: 50px;
     border-radius: 25px;
 }
-.feed{
-    margin-top: 85px ;
+
+.feed {
+    margin-top: 85px;
     display: flex;
     justify-content: center;
     width: 80%;
@@ -81,11 +95,12 @@ body{
 }
 
 /* Postagem da duvida*/
-.container{
+.container {
     width: 80%;
     margin: auto;
 }
-.div-form{
+
+.div-form {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -98,24 +113,28 @@ body{
     z-index: 0;
 }
 
-.labelTema{
+.labelTema {
     display: flex;
     flex-direction: column;
 }
-.labelTema input{
+
+.labelTema input {
     width: 30%;
     border-radius: 7px;
 }
-.labelDescricao{
+
+.labelDescricao {
     display: flex;
     flex-direction: column;
 }
-.text_descricao{
+
+.text_descricao {
     border-radius: 15px;
 }
+
 /* Fim da postagem da duvia */
 /* Estilização do feed */
-.publicacao{
+.publicacao {
     /* height: 37vh; */
     background-color: #242526;
     margin-bottom: 15px;
@@ -127,46 +146,54 @@ body{
     border: solid;
     border-color: #444546;
 }
-.spanImg{
+
+.spanImg {
     border: solid;
     border-color: #444546;
     border-radius: 50px;
 }
-.spanImg img{
+
+.spanImg img {
     width: 40px;
     border-radius: 15px;
 }
-.div-indice{
+
+.div-indice {
     display: flex;
     align-items: center;
 }
-.spanImg2{
+
+.spanImg2 {
     display: flex;
     justify-content: center;
 }
-.spanImg2 img{
+
+.spanImg2 img {
     max-width: 300px;
     margin-top: 15px
 }
 
-.div-buttons{
+.div-buttons {
     display: flex;
     justify-content: space-evenly;
-    border-top:solid;
+    border-top: solid;
     border-bottom: solid;
-    border-color:#444546 ;
+    border-color: #444546;
     border-width: 1px;
     padding: 5px 0px 5px 0px;
     margin-top: 10px;
 }
-.div-buttons button{
+
+.div-buttons button {
     background-color: transparent;
     color: #B1B4B7;
     border: transparent;
 }
-.publicacao-descricao{
+
+.publicacao-descricao {
     margin: 10px;
 }
-.publicacao-nome{
+
+.publicacao-nome {
     cursor: pointer;
 }

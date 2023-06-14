@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis&family=Playfair&family=Ubuntu:ital@1&display=swap');
+body{
+  font-family: 'Playfair', serif;
+}
 .login{
     display: flex;
     align-items: center;
@@ -34,7 +38,7 @@
     text-align: center;
     background-color: #E8C2A1;
     color: #2C1B06;
-    height: 50vh;
+    /* height: 50vh; */
     width: 30%;
     font-size: 25px;
     line-height: 7vh;

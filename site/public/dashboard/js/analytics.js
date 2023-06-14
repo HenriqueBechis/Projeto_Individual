@@ -57,7 +57,7 @@ function plotarGrafico(resposta) {
 
     // Criando estrutura para plotar gráfico - config
     const config = {
-        type: 'doughnut',
+        type: 'bar',
         data: dados,
       
     };
