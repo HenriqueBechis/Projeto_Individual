@@ -1,6 +1,11 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Dosis&family=Playfair&family=Ubuntu:ital@1&display=swap');
+ 
 body{
     background-color: black;
     color: rgb(194, 117, 78);
+  font-family: 'Playfair', serif;
+
 }
 video{
     height: 50vh;
@@ -42,6 +47,7 @@ video{
 }
 .container {
     display: flex;
+    flex-direction: column;
     width: 90%;
     margin: auto;
 }
@@ -81,18 +87,34 @@ video{
     text-align: justify;
     font-size: 25px;
 }
-
-/* Linha do tempo  */
-.redonda{
-    margin-left:5% ;
-    background-color: white;
-    width: 20px;
-    border-radius: 0% 50% 50% 0%;
-    padding-bottom: 10px;
+/* Terceira sessão */
+.terceiraSessao{
+    margin-top: 10vh;
 }
-.reta{
-    margin-left:5% ;
-    width: 5px;
-    height: 20px;
-    background-color: white;
+.terceiraSessao p{
+    margin-top: 3vh;
+    font-size: 25px;
+    line-height: 5vh;
+}
+.terceiraSessao h1{
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 2vh;
+}
+/* Sessão vídeos */
+.SessaoVideos h1{
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    font-size: 40px;
+    font-weight: 700;
+}
+.SessaoVideos h2{
+    font-size: 30px;
+    font-weight: 500;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
+.SessaoVideos p {
+    font-size: 20px;
+    width: 50%;
 }
