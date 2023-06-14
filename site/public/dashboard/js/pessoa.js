@@ -19,9 +19,9 @@ function puxarDados(idUsuario) {
                     Foto.src = `../assets/${infos.foto}`;
                     console.log("Dados recebidos: ", JSON.stringify(resposta));
                     b_usuario.innerHTML = `${nome}`;
-                    idade_usuario.innerHTML = `${idade}<br>`
-                    instrumento_usuario.innerHTML = `${instrumento} <br>`
-                    descricao_usuario.innerHTML = `${descricao} <br>`
+                    idade_usuario.innerHTML = `${idade}`
+                    instrumento_usuario.innerHTML = `${instrumento} `
+                    descricao_usuario.innerHTML = `${descricao} `
                 })
         } else {
             throw ("Houve um erro na API");

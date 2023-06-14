@@ -17,7 +17,7 @@ body{
     top: 0px;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     border-bottom: solid;
     border-color: #444546;
 }
